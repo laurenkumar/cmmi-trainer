@@ -53,8 +53,11 @@ jobs:
             mv "videos/$stem.silent.mp4" "videos/$stem.mp4"
             cp "video_compositions/$stem.vtt" "videos/$stem.vtt"
             test -s "videos/$stem.mp4"
-            ffprobe -v error -select_streams v:0 -show_entries stream=index -of csv=p=0 "videos/$stem.mp4" | grep -q .
-            test -z "$(ffprobe -v error -select_streams a:0 -show_entries stream=index -of csv=p=0 "videos/$stem.mp4")"
+            video_stream="$(ffprobe -v error -select_streams v:0 -show_entries stream=index -of csv=p=0 "videos/$stem.mp4")"
+            audio_stream="$(ffprobe -v error -select_streams a:0 -show_entries stream=index -of csv=p=0 "videos/$stem.mp4")"
+            echo "VERIFIED $stem video=$video_stream audio=$audio_stream"
+            test -n "$video_stream"
+            test -z "$audio_stream"
           done
           test "$(find videos -maxdepth 1 -name '*.mp4' | wc -l)" -eq 10
           test "$(find videos -maxdepth 1 -name '*.vtt' | wc -l)" -eq 10
