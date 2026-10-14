@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:09.990
+Welcome to Enabling Safety. In this lesson, we explore this purpose: Reduce operational and product safety hazards to acceptable levels.
+
+2
+00:00:09.990 --> 00:00:20.440
+Consider this scenario. An automated machine could injure an operator after a sensor failure. First understand the problem before producing documentation.
+
+3
+00:00:20.440 --> 00:00:31.430
+Start with two steps: Identify safety needs and hazards. Then Prioritize hazards and tolerances. Each step should be explained and evidenced.
+
+4
+00:00:31.430 --> 00:00:40.960
+Continue with Implement preventive safeguards. Then Review tests and residual risk. Verify the results against the intended outcome.
+
+5
+00:00:40.960 --> 00:01:01.090
+Stronger evidence looks like this: Stronger: contemporaneous hazard log, risk assessment, safety tests tied to real work. Weaker evidence would be: Weaker: confusing physical or functional safety with cybersecurity; no trace of consistent use. Triangulate independent sources.
+
+6
+00:01:01.090 --> 00:01:15.340
+Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.

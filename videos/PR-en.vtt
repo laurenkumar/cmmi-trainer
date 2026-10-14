@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:09.190
+Welcome to Peer Reviews. In this lesson, we explore this purpose: Find defects early using structured reviews of work products.
+
+2
+00:00:09.190 --> 00:00:19.540
+Consider this scenario. An architecture design is approved without technical scrutiny. First understand the problem before producing documentation.
+
+3
+00:00:19.540 --> 00:00:29.670
+Start with two steps: Choose critical work products. Then Prepare criteria and reviewers. Each step should be explained and evidenced.
+
+4
+00:00:29.670 --> 00:00:39.970
+Continue with Record findings and suggested fixes. Then Verify resolution and trends. Verify the results against the intended outcome.
+
+5
+00:00:39.970 --> 00:00:59.740
+Stronger evidence looks like this: Stronger: contemporaneous review checklist, defect log, closure evidence tied to real work. Weaker evidence would be: Weaker: mistaking casual agreement for a documented peer review; no trace of consistent use. Triangulate independent sources.
+
+6
+00:00:59.740 --> 00:01:13.990
+Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.

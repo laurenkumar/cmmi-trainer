@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:11.750
+Welcome to Managing Security Threats and Vulnerabilities. In this lesson, we explore this purpose: Find, prioritize and address threats and weaknesses according to risk.
+
+2
+00:00:11.750 --> 00:00:21.790
+Consider this scenario. A critical patch is postponed without a risk assessment. First understand the problem before producing documentation.
+
+3
+00:00:21.790 --> 00:00:32.660
+Start with two steps: Identify exposures and threat sources. Then Rank risk using defined factors. Each step should be explained and evidenced.
+
+4
+00:00:32.660 --> 00:00:42.470
+Continue with Mitigate or formally accept risks. Then Reassess exposure and closure. Verify the results against the intended outcome.
+
+5
+00:00:42.470 --> 00:01:02.190
+Stronger evidence looks like this: Stronger: contemporaneous threat register, risk prioritization, remediation report tied to real work. Weaker evidence would be: Weaker: assigning the same urgency to every vulnerability; no trace of consistent use. Triangulate independent sources.
+
+6
+00:01:02.190 --> 00:01:16.440
+Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.

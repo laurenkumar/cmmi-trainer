@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:11.150
+Welcome to Requirements Development and Management. In this lesson, we explore this purpose: Elicit, analyze, maintain and trace stakeholder requirements.
+
+2
+00:00:11.150 --> 00:00:21.450
+Consider this scenario. A customer requests a rule change with no impact analysis. First understand the problem before producing documentation.
+
+3
+00:00:21.450 --> 00:00:31.200
+Start with two steps: Elicit stakeholder needs. Then Refine and agree requirements. Each step should be explained and evidenced.
+
+4
+00:00:31.200 --> 00:00:41.270
+Continue with Trace and control changes. Then Evaluate impact on plans and tests. Verify the results against the intended outcome.
+
+5
+00:00:41.270 --> 00:01:01.550
+Stronger evidence looks like this: Stronger: contemporaneous approved requirements, traceability links, change analysis tied to real work. Weaker evidence would be: Weaker: implementing an ambiguous verbal request immediately; no trace of consistent use. Triangulate independent sources.
+
+6
+00:01:01.550 --> 00:01:15.800
+Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.

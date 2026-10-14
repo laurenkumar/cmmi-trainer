@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:09.370
+Welcome to Continuity. In this lesson, we explore this purpose: Keep essential operations running or restore them after disruption.
+
+2
+00:00:09.370 --> 00:00:19.410
+Consider this scenario. A cloud outage blocks a critical service for two days. First understand the problem before producing documentation.
+
+3
+00:00:19.410 --> 00:00:30.300
+Start with two steps: Identify critical functions. Then Define recovery priorities and resources. Each step should be explained and evidenced.
+
+4
+00:00:30.300 --> 00:00:40.240
+Continue with Exercise the continuity plan. Then Correct gaps detected in exercises. Verify the results against the intended outcome.
+
+5
+00:00:40.240 --> 00:01:00.670
+Stronger evidence looks like this: Stronger: contemporaneous business impact analysis, recovery runbooks, exercise results tied to real work. Weaker evidence would be: Weaker: keeping an untested business-continuity document; no trace of consistent use. Triangulate independent sources.
+
+6
+00:01:00.670 --> 00:01:14.920
+Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.

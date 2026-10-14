@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:10.870
+Welcome to Verification and Validation. In this lesson, we explore this purpose: Check conformance to specifications and fitness for stakeholder use.
+
+2
+00:00:10.870 --> 00:00:20.850
+Consider this scenario. Unit tests pass while the customer journey still fails. First understand the problem before producing documentation.
+
+3
+00:00:20.850 --> 00:00:31.270
+Start with two steps: Plan checks and acceptance. Then Verify outputs against requirements. Each step should be explained and evidenced.
+
+4
+00:00:31.270 --> 00:00:41.010
+Continue with Validate use in intended conditions. Then Investigate gaps and retest. Verify the results against the intended outcome.
+
+5
+00:00:41.010 --> 00:01:02.210
+Stronger evidence looks like this: Stronger: contemporaneous verification reports, validation feedback, acceptance results tied to real work. Weaker evidence would be: Weaker: using verification evidence as proof of real-world usefulness; no trace of consistent use. Triangulate independent sources.
+
+6
+00:01:02.210 --> 00:01:16.460
+Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.

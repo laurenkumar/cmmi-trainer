@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:10.600
+Welcome to Technical Solution. In this lesson, we explore this purpose: Design and implement a solution that satisfies constraints and requirements.
+
+2
+00:00:10.600 --> 00:00:20.880
+Consider this scenario. A fast system cannot meet maintenance and support needs. First understand the problem before producing documentation.
+
+3
+00:00:20.880 --> 00:00:30.860
+Start with two steps: Assess technical options. Then Select justified design approaches. Each step should be explained and evidenced.
+
+4
+00:00:30.860 --> 00:00:40.480
+Continue with Develop the solution components. Then Confirm constraints are addressed. Verify the results against the intended outcome.
+
+5
+00:00:40.480 --> 00:01:00.770
+Stronger evidence looks like this: Stronger: contemporaneous design records, trade-off evidence, component tests tied to real work. Weaker evidence would be: Weaker: choosing an architecture before analyzing design trade-offs; no trace of consistent use. Triangulate independent sources.
+
+6
+00:01:00.770 --> 00:01:15.020
+Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.
