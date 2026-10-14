@@ -1,34 +1,30 @@
-# CMMI Academy 2027 — FR/EN
+# CMMI Academy 2027 — PQA public practice deep dive + two blind mock exams
 
-[Open the app](https://cmmi-trainer.vercel.app/) · Independent learning resource, not ISACA certification.
+Live site: <https://cmmi-trainer.vercel.app/>. Single-file static app, French/English.
 
-## Curriculum
+## What's new in this update
 
-- 40 interactive lessons (9 foundations, 31 Practice Areas) with French and English explanatory texts, diagrams, original cases and graded quizzes.
-- 102 public, practice-group level summaries. 276 is the *count of normative practices* in the public reference guide, **not** the number of normative practice statements licensed and reproduced on this website.
-- 320 fictional evidence records, 160 conflicting interviews, 400 lesson mastery items and 481 additional quizzes.
-- 102 bilingual glossary entries and Practitioner-like exam sessions (120 items/240 minutes). The simulated score is **not** an official prediction of success.
-- In-browser animated explainers with free OS browser speech synthesis.
-- Actual narrated FR/EN video publishing workflow under `.github/workflows/render-videos.yml`. The encoded MP4 player is displayed only if a rendered asset exists. See `VIDEO_GUIDE.md`.
+- **PQA (Process Quality Assurance):** a step-by-step module covering each of the six practice identifiers openly published in the 2026 CMMI Model Quick Reference Guide (pp. 22, 32–33): PQA 1.1; PQA 2.1–2.4; and PQA 3.1. Each contains a new explanation, one worked example, evidence to collect, a common pitfall, an interview prompt, and a bilingual micro-quiz. The practice IDs and levels derive from the public guide; teaching content is independently authored, not copied from the licensed full model.
+- **31 Practice Areas:** corrected the English level descriptions, replacing repeated generic blurbs with domain-specific explanations based on public practice-group summaries. The French PQA level-3 summary was corrected to reflect recording improvement opportunities.
+- **Separate examination banks:** two 120-question bilingual mock-exam forms, A and B. No question in either form is also used in the lesson/quiz banks; A and B have no identical stems. Questions only reveal explanations at the end, with analysis of results across the seven official content-area groupings. An exam from A followed by B presents unseen questions; a third session explicitly labels itself a *retake*.
+- **Responsive:** tested in Chromium desktop and 390px mobile, including bilingual PQA navigation and the A → B transitions.
 
-## Development
+## How to study
 
-Python 3. Run `python3 audit_content.py && python3 build.py` and open `index.html`. Edit `app.js`, `app.css`, and `data.json`; `build.py` embeds all three into the standalone HTML. Vercel automatically deploys the repository root.
+1. Open **Parcours pédagogique / Learning pathway** → **PQA** → **Comprendre / Understand**.
+2. Use the anchor **Explorer les six pratiques PQA** to go directly to the detailed learning cards. Expand each practice to see the explanation, real-life-inspired example, evidence, and formative question.
+3. Use the **Mastery check** at the end of the lesson. This is a learning check, not a professional credential.
+4. Open **Quiz et examen blanc / Mock exam** → **Exam**. Form A and form B have different questions. After finishing both, the app will label subsequent exams as retakes.
 
-HyperFrames authoring:
+## Building & tests
 
-```bash
-python3 generate_hyperframes.py --with-audio
-npm install -g hyperframes
-hyperframes render --composition video_compositions/CAR-en.html --fps 12 --quality draft --output videos/CAR-en.mp4
-```
+Static deploy: `index.html`. Editable sources: `data.json`, `app.js`, `app.css`. Regenerate with `python build.py`, then `python audit_v6.py`. No external runtime API required.
 
-On GitHub Actions, the workflow automatically renders eight parallel batches of ten, checks audio tracks and subtitle files, then commits the 80 completed videos when all are successful. Do **not** infer that this is complete just from an Actions workflow existing.
+The other features (video lesson players, bilingual narration, simulated audit files and 80 generated MP4 files in `videos/`) are unchanged.
 
-## Official coverage and rights
+## Source and scope limits
 
-The copyrighted CMMI v4.0 detailed practice statements and additional normative implementation guidance are **not** included. The CMMI Institute [Quick Reference Guide](https://cmmiinstitute.com/resource-files/public/cmmi-model-quick-reference-guide) itself says it cannot replace the model for training or appraisals. The licensed [Model Viewer](https://cmmiinstitute.com/products/cmmi/cmmi-model-viewer) gives access to the full model; its [IP sharing restrictions](https://cmmiinstitute.com/getattachment/da36326f-d5ad-4478-ad59-74ae042c688e/CMMI-MDDAP-IP-Policy-Update-Use-Cases_Feb2025_PDF.pdf) prohibit distributing detailed licensed portions to unlicensed users. We cannot circumvent that by copying leaked GitHub versions.
-
-The authorized Building Organizational Capability course and other requirements remain prerequisites to the Practitioner certification, and organizational maturity ratings require an actual appraisal. Official content and policies may change in 2027. Get review of practice-level training and question keys by a qualified CMMI instructor before making pass-readiness claims.
-
-CMMI® is a trademark of CMMI Institute / ISACA. HyperFrames is by HeyGen (open source; check its license). Narration uses free eSpeak voices locally (basic, robotic quality) or browser voices.
+- Official source: **CMMI Model Quick Reference Guide v4.0** (CMMI Institute, 25 August 2026), particularly pp. 22, 32–33 for PQA: <https://www.isaca.org/resources/reference-guide/cmmi-model-quick-reference-guide>.
+- Practitioner exam reference: **CMMI Credentialing Guide for Practitioners** (August 2026): <https://www.cmmiinstitute.com/resource-files/public/cmmi-model-materials/cmmi-credentialing-guide-for-practitioners>.
+- Only the **six publicly excerpted PQA practices** have been individually expanded and verified against the supplied document. The 31 Practice Areas have public-level summaries but **not** all 276 individually detailed licensed normative practice statements. Other practice-group summaries in the site are learning paraphrases, not certification criteria.
+- The two exam forms contain **independently generated educational questions**; their subject matter is tied to public PA goals, but their difficulty, distractors, psychometrics, translations and official-exam equivalence have not been independently certified. No success guarantee. Official qualification prerequisites and 2027 policies still apply.
