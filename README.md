@@ -1,30 +1,23 @@
-# CMMI Academy 2027
+# CMMI Academy 2027 — bilingual trainer
 
-Application d'apprentissage interactive en français pour préparer les concepts CMMI v4.0 et le raisonnement d'une évaluation d'entreprise (*appraisal*).
+Interactive **French/English** study platform for CMMI v4.0 concepts and preparation for personal Practitioner certification and organizational appraisal participation. [Open the live app](https://cmmi-trainer.vercel.app/).
 
-## Fonctionnalités
+## Features
+- 40 lessons: nine foundations and 31 Practice Areas, with original reading, diagrams, fictional cases and workshops in FR/EN.
+- 481 original practice questions: 275 French and 206 English.
+- 120-question, 240-minute English mock-exam option, with 2026 Practitioner content-area weights (Core/Virtual 50%, Development 15%, Services 15%, Security/Safety 5%, Suppliers 5%, Data 5%, People 5%).
+- 102 bilingual technical vocabulary cards with recall challenges.
+- 20 fictional appraisal cases, flashcards, evidence checklist and local progress.
 
-- 39 leçons (8 fondations et 31 Practice Areas), avec cours détaillés, schémas cliquables, cas d'entreprise et ateliers interactifs.
-- 269 questions d'entraînement originales et examens blancs chronométrés.
-- Simulateur d'audit (20 dossiers), flashcards, grille de préparation et suivi des progrès enregistré localement.
-- Interface responsive, sans compte, API ni serveur.
+## Files
+- `index.html`: complete standalone application, deployed as a static site.
+- `app.js`: editable behavior; `app.css`: editable styles; `data.json`: curriculum, glossary, questions.
+- `build.py`: re-create `index.html` after editing sources; `test_content.py`: content validation.
+- `AUDIT.md`: findings and limitations.
 
-## Démarrage
+Run `python build.py && python test_content.py`. Commit generated `index.html` along with edited sources to trigger Vercel from `main`.
 
-Ouvrir `index.html` dans un navigateur, ou servir ce fichier avec un serveur statique. Pour un déploiement Vercel, sélectionner le preset **Other** et publier la racine du dépôt (aucune commande de build nécessaire).
+## Boundaries and sources
+This is independent educational material, not official exam questions, licensed CMMI model content or recognized appraisal. The **Quick Reference Guide v4.0** is a summary, not the full normative model. The **Building Organizational Capability** course remains a prerequisite to the Practitioner. No practice test can guarantee certification.
 
-## Sources du projet
-
-- `index.html` : application complète autonome, version prête à publier.
-- `app.css` : feuilles de style modifiables.
-- `app.js` : logique interactive modifiable.
-- `data.json` : contenu pédagogique et questions.
-- `build.py` : reconstruit `index.html` à partir des trois fichiers ci-dessus.
-
-Après modification des sources, exécuter : `python build.py`, puis committer aussi le nouvel `index.html`.
-
-## Périmètre pédagogique
-
-Le contenu a été conçu à partir du *CMMI Model Quick Reference Guide v4.0* (2026) et du *CMMI Adoption Guide for CMMI Credentials* (2024) fournis pour le projet. Le guide rapide n'est **pas** le modèle normatif complet et ne suffit pas, à lui seul, pour une évaluation officielle. Les scénarios, réponses et scores sont pédagogiques et ne sont pas des examens ni des appraisals officiels.
-
-Projet indépendant ; CMMI® est une marque du CMMI Institute. Les progrès restent dans le stockage local du navigateur ; les fonctions d'export/import de l'application permettent de les transférer.
+Official references: [CMMI Quick Reference Guide](https://cmmiinstitute.com/resource-files/public/cmmi-model-quick-reference-guide), [2026 Practitioner Credentialing Guide](https://www.cmmiinstitute.com/getattachment/8051d124-5dd9-44fd-9bf0-4842c6d58b16/CMMI-Credentialing-Guide-for-Practitioners.pdf). Check 2027 policies when registering.
