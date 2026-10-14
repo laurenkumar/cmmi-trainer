@@ -48,6 +48,9 @@ jobs:
             stem="$(basename "$file" .html)"
             echo "Rendering $stem in Cartesian, silent..."
             hyperframes render --composition "$file" --fps 18 --quality looks --output "videos/$stem.mp4" </dev/null
+            # HyperFrames may mux an empty audio stream; strip it losslessly to enforce silence.
+            ffmpeg -hide_banner -loglevel error -y -i "videos/$stem.mp4" -map 0:v:0 -c:v copy -an "videos/$stem.silent.mp4"
+            mv "videos/$stem.silent.mp4" "videos/$stem.mp4"
             cp "video_compositions/$stem.vtt" "videos/$stem.vtt"
             test -s "videos/$stem.mp4"
             ffprobe -v error -select_streams v:0 -show_entries stream=index -of csv=p=0 "videos/$stem.mp4" | grep -q .
