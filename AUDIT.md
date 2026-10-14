@@ -1,47 +1,35 @@
-# CMMI Academy V4 — teaching, UX, localization & exam-readiness audit
-Date: 2026-10-14. Scope: local V4 production build generated from `app.js`, `app.css`, `data.json`; reviewed against the two user-supplied CMMI reference PDFs and publicly listed August 2026 official Practitioner credentialing materials. This is an independent audit of a training simulator, not an official CMMI appraisal.
+# CMMI Academy — Content & assessment audit (14 October 2026)
 
-## Measured coverage and changes
+## Method
 
-| Item | Verified V4 state |
+Checked the *CMMI Model Quick Reference Guide v4.0 (2026)* supplied by the project owner, focusing on pp. 22, 32–33 for the six publicly reproduced PQA practice statements. Compared 31 PG-level bilingual summaries with the quick guide's PA structure and fixed overly generic English summaries. Exam questions are newly written/assembled from the public PA summaries and concrete examples; they are not authorized ISACA past questions.
+
+## Coverage
+
+| Requirement | Finding |
 |---|---|
-| Curriculum | 40 lessons (9 foundations, 31 Practice Areas) in French and English |
-| Practice Group summaries | 102 bilingual group-level teaching summaries, covering levels displayed in user-provided quick reference |
-| Practice *counts* in quick guide | 276 listed, but the full *normative wording of these practices is not included* |
-| Expanded instruction | 4 guided, evidence-oriented walkthroughs per lesson, FR and EN; original applied examples and common pitfalls |
-| Contradictory case material | 4 documents and 2 fictional conflicting interviews per lesson in each language (320 documents and 160 interviews) |
-| Assessment | 5 independent mastery items per lesson/language = 400 items, score displayed after submission, threshold 4/5 (80%) before lesson marked mastered; earlier V3 achievements do not bypass V4 gate |
-| Separate quiz banks | 275 French + 206 English = 481 practice questions, plus the above mastery checks |
-| Exam simulation | 120 questions / 240 min / domain proportions following the August 2026 Practitioner overview; simulator scores are **not** an official passing prediction |
-| Media | 6-scene animated explainer per lesson × two languages = 80 interactive explainers; subtitles and browser TTS with play/pause/speed controls. Source generator outputs 80 Hyperframes-compatible HTML compositions |
-| Glossary | 102 EN terms with 102 distinct French definitions; previously missing 62 FR labels have been completed |
-| Mobile | 390 px overflow regression fixed (document scrollWidth equals 390 px), UI interaction regression passing |
+| All 31 PA present | Yes |
+| All 276 licensed practice statements reproduced | **No**; unavailable for public redistribution |
+| One practice-by-practice public-source course | **PQA: six distinct identifiers, levels and examples** |
+| Bilingual PQA explanations and exercises | Yes |
+| English PG descriptions specific to each PA | Yes; 31 PA checked for level-key consistency |
+| Private assessment pools | Distinct from quiz banks in UI; content still inspectable in public client-source code |
+| 120-question weighting | 60 CORE/VRT, 18 DEV, 18 SVC, 6 SEC/SAF, 6 SPM, 6 DATA, 6 PPL per form |
+| Two fresh mock exams per language | Yes: A and B, 240 distinct questions per language |
+| After A+B | Retake labelled; questions necessarily recur after both forms |
+| Official score predictive validity | **Not established**; no representative pass-rate data |
+| Certified human translation / subject-matter review | **Not performed** |
 
-## Actual test evidence
-- `python audit_content.py` → PASS for all 40 bilingual lessons, source levels, 400 mastery questions, 80 scenes, contradictions, and 102 definitions.
-- `python test_ui_fast.py` → PASS at 1440 and 390 px; tested CAR case, five-question graded assessment, persistence of completion, language change, video presentation; no JavaScript page errors or horizontal overflow.
-- `python audit_translation.py` → English screens and five lesson stages surveyed for residual French text. The bilingual glossary deliberately retains French equivalences. These are programmatic inspections, **not** certified human translation proofreading of every paragraph.
+## Functional tests
 
-## Final readiness conclusion (important)
-**The platform is not yet sufficient as a sole, guaranteed study source for an official exam or company appraisal.** It offers comprehensive practice-area *overviews* and much stronger application exercises. However, the user's quick reference explicitly says it cannot replace the full licensed CMMI Model. The detailed normative wording, detailed examples and context-specific information for **all 276 individual practices** are missing. No responsible educational review can guarantee passing based only on simulated question scores. The official training and credential eligibility requirements still apply. The 2026 credentialing guide is the latest reference verified here; re-check 2027 policies.
+`python audit_v6.py`: JSON and language schema, six PQA entries, 31 PG keys, two 120-question forms, domain quotas, unique stems, no overlap between exam and practice banks, no literal answer leakage in prompt.
 
-### Remaining prioritized improvements
-1. **P0 — Licensed model:** Acquire lawful access to CMMI v4.0 Model Viewer for the applicable view, then write original practice-level explanations with precise identifiers, citations and verified educational examples (without reproducing licensed text in violation of terms). Link each practice to evidence tasks.
-2. **P0 — Human subject-matter review:** Have a qualified CMMI instructor/Lead Appraiser validate scenarios, practice group descriptions, answer keys, and domain mapping. Current practice tests are **original**, not validated official exam items.
-3. **P1 — True MP4s:** Hyperframes compositions are generated, but an external CLI render and 80 locally sourced French/English audio tracks have **not** been produced or uploaded. Browser speech synthesis depends on voice availability and varies by OS/locale.
-4. **P1 — Human bilingual proofreading:** Native FR/EN authoring covers all 40 lessons and new media/evaluations; static UI localization checks pass on tested flows. A certified bilingual proofreader should review terminology and tone in all edge-case settings and dialogs.
-5. **P2 — Longitudinal learning validity:** Measure delayed recall after 7/30 days and require diversified case families before predicting a learner is ready.
+`test_fast.py`: Chromium click through PQA micro-check, bilingual switch, start 120-question form A, submit answers and render diagnosis, start unseen form B, third launch labelled retake. Mobile 390px viewport no overflow; no runtime JS errors.
 
-## Official reference links
-- CMMI Institute [Quick Reference Guide (Aug 2026)](https://cmmiinstitute.com/resource-files/public/cmmi-model-quick-reference-guide).
-- CMMI Institute [Credentialing Guide for Practitioners (Aug 2026)](https://cmmiinstitute.com/resource-files/public/cmmi-model-materials/cmmi-credentialing-guide-for-practitioners).
-- CMMI Institute [Model Viewer](https://www.cmmiinstitute.com/products/cmmi/cmmi-model-viewer).
-- HeyGen [Hyperframes source](https://github.com/heygen-com/hyperframes), Apache-2.0.
+## Limitations & next content sprint
 
-**Legal boundaries:** no copyrighted official exam questions or non-public licensed model text has been copied into the app. Case documents, scripts and mastery tests are original fictional educational content.
-
-## 2026-10-14 additional audit and rendering correction
-- Licensing independently checked against ISACA's current [IP sharing policy](https://cmmiinstitute.com/getattachment/da36326f-d5ad-4478-ad59-74ae042c688e/CMMI-MDDAP-IP-Policy-Update-Use-Cases_Feb2025_PDF.pdf). The public summary's **276 count** cannot be represented as verified instructional coverage of 276 detailed normative practice statements. No unlicensed copies scraped from GitHub can be incorporated.
-- Official [Model Viewer](https://cmmiinstitute.com/products/cmmi/cmmi-model-viewer) costs US$150/year (as listed in October 2026) and includes full practice statements and supplemental information. A course review by an authorized expert remains needed.
-- Previous claim of 80 HyperFrames videos was too strong: the prior project included only compositions. The updated generator creates source scenes with local French/English audio WAV and timed subtitle VTT; the new GitHub Actions workflow renders and tests all 80 MP4 files remotely. Its successful completion must be verified before claiming publication.
-- The app continues to offer its browser-based narrator as a fallback, independent of the external MP4 assets.
+1. **Model access**: the public quick guide explicitly says it is not a substitute for the licensed model. The detailed statements, additional required information and explanatory guidance for remaining practices require authorized access. Do not invent them.
+2. **Real mastery quality**: the mock forms are independent of practice quizzes and of each other but many items still depend on identifying the appropriate PA/response from short scenarios. Human review is needed to flag implausible distractors, assess discrimination, ambiguity and reading level. The 80% threshold used in course practice is not an official passing score.
+3. **Translation**: bilingual PQA content and the 31 English PG summaries were rewritten for meaning; a native-speaking certified instructor should audit all case studies and QCM explanations before describing the translation as perfect.
+4. **Video**: the original 80 MP4 (40 lessons in FR and EN) are unchanged. This PQA expansion is longer than its existing video, so the video does not narrate all six new practice-level mini-lessons.
+5. **Exam security**: all correct answers are present in the downloadable web app. For a genuinely secure exam, put the held-out bank and marking behind authenticated server endpoints.
