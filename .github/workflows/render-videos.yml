@@ -1,0 +1,96 @@
+name: Render 80 bilingual HyperFrames lessons
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - data.json
+      - generate_hyperframes.py
+      - .github/workflows/render-videos.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hyperframes-mp4-production
+  cancel-in-progress: false
+
+jobs:
+  render:
+    name: Render shard ${{ matrix.shard }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install free local video, speech and rendering dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg espeak
+          npm install --global hyperframes
+      - name: Generate ten scene-timed HTML compositions and bilingual narrated WAV clips
+        run: python3 generate_hyperframes.py --shard '${{ matrix.shard }}' --with-audio
+      - name: Render MP4 using HyperFrames CLI
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p videos
+          while IFS= read -r file; do
+            stem="$(basename "$file" .html)"
+            echo "Rendering $stem via HyperFrames…"
+            hyperframes render --composition "$file" --fps 12 --quality draft --output "videos/$stem.mp4"
+            cp "video_compositions/$stem.vtt" "videos/$stem.vtt"
+            test -s "videos/$stem.mp4"
+            ffprobe -v error -show_entries format=duration -of default=nw=1 "videos/$stem.mp4"
+            # The encoded MP4 must really have a locally synthesized audio track.
+            ffprobe -v error -select_streams a:0 -show_entries stream=index -of csv=p=0 "videos/$stem.mp4" | grep -q .
+          done < <(find video_compositions -maxdepth 1 -name '*.html' -type f | sort)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyperframes-videos-${{ matrix.shard }}
+          path: videos/
+          if-no-files-found: error
+          retention-days: 3
+
+  publish:
+    name: Commit 80 videos and subtitles to main
+    needs: render
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: hyperframes-videos-*
+          path: videos/
+          merge-multiple: true
+      - name: Validate all 80 videos and both voice tracks
+        run: |
+          test "$(find videos -maxdepth 1 -name '*.mp4' | wc -l)" -eq 80
+          test "$(find videos -maxdepth 1 -name '*.vtt' | wc -l)" -eq 80
+          for f in videos/*.mp4; do
+            test -s "$f"
+            ffprobe -v error -select_streams a:0 -show_entries stream=index -of csv=p=0 "$f" | grep -q .
+          done
+      - name: Commit completed assets and trigger Vercel
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase origin main
+          git add videos/*.mp4 videos/*.vtt
+          if git diff --cached --quiet; then
+            echo 'All rendered assets already current'
+          else
+            git commit -m 'assets: 80 narrated bilingual lesson videos rendered by HyperFrames'
+            git push origin HEAD:main
+          fi
