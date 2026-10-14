@@ -42,16 +42,18 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p videos
-          while IFS= read -r file; do
+          mapfile -t compositions < <(find video_compositions -maxdepth 1 -name '*.html' -type f | sort)
+          test "${#compositions[@]}" -eq 10
+          for file in "${compositions[@]}"; do
             stem="$(basename "$file" .html)"
             echo "Rendering $stem via HyperFrames…"
-            hyperframes render --composition "$file" --fps 12 --quality draft --output "videos/$stem.mp4"
+            hyperframes render --composition "$file" --fps 12 --quality draft --output "videos/$stem.mp4" </dev/null
             cp "video_compositions/$stem.vtt" "videos/$stem.vtt"
             test -s "videos/$stem.mp4"
             ffprobe -v error -show_entries format=duration -of default=nw=1 "videos/$stem.mp4"
             # The encoded MP4 must really have a locally synthesized audio track.
             ffprobe -v error -select_streams a:0 -show_entries stream=index -of csv=p=0 "videos/$stem.mp4" | grep -q .
-          done < <(find video_compositions -maxdepth 1 -name '*.html' -type f | sort)
+          done
       - uses: actions/upload-artifact@v4
         with:
           name: hyperframes-videos-${{ matrix.shard }}
@@ -76,6 +78,8 @@ jobs:
           merge-multiple: true
       - name: Validate all 80 videos and both voice tracks
         run: |
+          echo "MP4 count: $(find videos -maxdepth 1 -name '*.mp4' | wc -l)"
+          echo "VTT count: $(find videos -maxdepth 1 -name '*.vtt' | wc -l)"
           test "$(find videos -maxdepth 1 -name '*.mp4' | wc -l)" -eq 80
           test "$(find videos -maxdepth 1 -name '*.vtt' | wc -l)" -eq 80
           for f in videos/*.mp4; do
