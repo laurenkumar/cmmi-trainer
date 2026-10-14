@@ -1,23 +1,34 @@
-# CMMI Academy 2027 — bilingual trainer
+# CMMI Academy 2027 — FR/EN
 
-Interactive **French/English** study platform for CMMI v4.0 concepts and preparation for personal Practitioner certification and organizational appraisal participation. [Open the live app](https://cmmi-trainer.vercel.app/).
+[Open the app](https://cmmi-trainer.vercel.app/) · Independent learning resource, not ISACA certification.
 
-## Features
-- 40 lessons: nine foundations and 31 Practice Areas, with original reading, diagrams, fictional cases and workshops in FR/EN.
-- 481 original practice questions: 275 French and 206 English.
-- 120-question, 240-minute English mock-exam option, with 2026 Practitioner content-area weights (Core/Virtual 50%, Development 15%, Services 15%, Security/Safety 5%, Suppliers 5%, Data 5%, People 5%).
-- 102 bilingual technical vocabulary cards with recall challenges.
-- 20 fictional appraisal cases, flashcards, evidence checklist and local progress.
+## Curriculum
 
-## Files
-- `index.html`: complete standalone application, deployed as a static site.
-- `app.js`: editable behavior; `app.css`: editable styles; `data.json`: curriculum, glossary, questions.
-- `build.py`: re-create `index.html` after editing sources; `test_content.py`: content validation.
-- `AUDIT.md`: findings and limitations.
+- 40 interactive lessons (9 foundations, 31 Practice Areas) with French and English explanatory texts, diagrams, original cases and graded quizzes.
+- 102 public, practice-group level summaries. 276 is the *count of normative practices* in the public reference guide, **not** the number of normative practice statements licensed and reproduced on this website.
+- 320 fictional evidence records, 160 conflicting interviews, 400 lesson mastery items and 481 additional quizzes.
+- 102 bilingual glossary entries and Practitioner-like exam sessions (120 items/240 minutes). The simulated score is **not** an official prediction of success.
+- In-browser animated explainers with free OS browser speech synthesis.
+- Actual narrated FR/EN video publishing workflow under `.github/workflows/render-videos.yml`. The encoded MP4 player is displayed only if a rendered asset exists. See `VIDEO_GUIDE.md`.
 
-Run `python build.py && python test_content.py`. Commit generated `index.html` along with edited sources to trigger Vercel from `main`.
+## Development
 
-## Boundaries and sources
-This is independent educational material, not official exam questions, licensed CMMI model content or recognized appraisal. The **Quick Reference Guide v4.0** is a summary, not the full normative model. The **Building Organizational Capability** course remains a prerequisite to the Practitioner. No practice test can guarantee certification.
+Python 3. Run `python3 audit_content.py && python3 build.py` and open `index.html`. Edit `app.js`, `app.css`, and `data.json`; `build.py` embeds all three into the standalone HTML. Vercel automatically deploys the repository root.
 
-Official references: [CMMI Quick Reference Guide](https://cmmiinstitute.com/resource-files/public/cmmi-model-quick-reference-guide), [2026 Practitioner Credentialing Guide](https://www.cmmiinstitute.com/getattachment/8051d124-5dd9-44fd-9bf0-4842c6d58b16/CMMI-Credentialing-Guide-for-Practitioners.pdf). Check 2027 policies when registering.
+HyperFrames authoring:
+
+```bash
+python3 generate_hyperframes.py --with-audio
+npm install -g hyperframes
+hyperframes render --composition video_compositions/CAR-en.html --fps 12 --quality draft --output videos/CAR-en.mp4
+```
+
+On GitHub Actions, the workflow automatically renders eight parallel batches of ten, checks audio tracks and subtitle files, then commits the 80 completed videos when all are successful. Do **not** infer that this is complete just from an Actions workflow existing.
+
+## Official coverage and rights
+
+The copyrighted CMMI v4.0 detailed practice statements and additional normative implementation guidance are **not** included. The CMMI Institute [Quick Reference Guide](https://cmmiinstitute.com/resource-files/public/cmmi-model-quick-reference-guide) itself says it cannot replace the model for training or appraisals. The licensed [Model Viewer](https://cmmiinstitute.com/products/cmmi/cmmi-model-viewer) gives access to the full model; its [IP sharing restrictions](https://cmmiinstitute.com/getattachment/da36326f-d5ad-4478-ad59-74ae042c688e/CMMI-MDDAP-IP-Policy-Update-Use-Cases_Feb2025_PDF.pdf) prohibit distributing detailed licensed portions to unlicensed users. We cannot circumvent that by copying leaked GitHub versions.
+
+The authorized Building Organizational Capability course and other requirements remain prerequisites to the Practitioner certification, and organizational maturity ratings require an actual appraisal. Official content and policies may change in 2027. Get review of practice-level training and question keys by a qualified CMMI instructor before making pass-readiness claims.
+
+CMMI® is a trademark of CMMI Institute / ISACA. HyperFrames is by HeyGen (open source; check its license). Narration uses free eSpeak voices locally (basic, robotic quality) or browser voices.
