@@ -1,41 +1,47 @@
-# CMMI Academy: Pedagogical, UX and Exam-Readiness Audit — 14 October 2026
+# CMMI Academy V4 — teaching, UX, localization & exam-readiness audit
+Date: 2026-10-14. Scope: local V4 production build generated from `app.js`, `app.css`, `data.json`; reviewed against the two user-supplied CMMI reference PDFs and publicly listed August 2026 official Practitioner credentialing materials. This is an independent audit of a training simulator, not an official CMMI appraisal.
 
-## Scope and method
+## Measured coverage and changes
 
-Review of repository content `index.html`, `app.js`, `app.css` and `data.json`, including all 31 PAs, foundation modules and training questions. Browser-level smoke tests covered FR→EN language switching, representative foundation/PA lessons, interactive chapter switching, flashcard/glossary reveal, 120-question exam initialization and mobile overflow checks. Vercel deployment metadata was checked for `READY`; protected website HTML could not be independently fetched via the Vercel account connector, therefore tests were performed on the same GitHub source locally, not asserted as a live browser test.
+| Item | Verified V4 state |
+|---|---|
+| Curriculum | 40 lessons (9 foundations, 31 Practice Areas) in French and English |
+| Practice Group summaries | 102 bilingual group-level teaching summaries, covering levels displayed in user-provided quick reference |
+| Practice *counts* in quick guide | 276 listed, but the full *normative wording of these practices is not included* |
+| Expanded instruction | 4 guided, evidence-oriented walkthroughs per lesson, FR and EN; original applied examples and common pitfalls |
+| Contradictory case material | 4 documents and 2 fictional conflicting interviews per lesson in each language (320 documents and 160 interviews) |
+| Assessment | 5 independent mastery items per lesson/language = 400 items, score displayed after submission, threshold 4/5 (80%) before lesson marked mastered; earlier V3 achievements do not bypass V4 gate |
+| Separate quiz banks | 275 French + 206 English = 481 practice questions, plus the above mastery checks |
+| Exam simulation | 120 questions / 240 min / domain proportions following the August 2026 Practitioner overview; simulator scores are **not** an official passing prediction |
+| Media | 6-scene animated explainer per lesson × two languages = 80 interactive explainers; subtitles and browser TTS with play/pause/speed controls. Source generator outputs 80 Hyperframes-compatible HTML compositions |
+| Glossary | 102 EN terms with 102 distinct French definitions; previously missing 62 FR labels have been completed |
+| Mobile | 390 px overflow regression fixed (document scrollWidth equals 390 px), UI interaction regression passing |
 
-### Referenced official materials
+## Actual test evidence
+- `python audit_content.py` → PASS for all 40 bilingual lessons, source levels, 400 mastery questions, 80 scenes, contradictions, and 102 definitions.
+- `python test_ui_fast.py` → PASS at 1440 and 390 px; tested CAR case, five-question graded assessment, persistence of completion, language change, video presentation; no JavaScript page errors or horizontal overflow.
+- `python audit_translation.py` → English screens and five lesson stages surveyed for residual French text. The bilingual glossary deliberately retains French equivalences. These are programmatic inspections, **not** certified human translation proofreading of every paragraph.
 
-- CMMI Model Quick Reference Guide v4.0, August 2026 (summary only).
-- CMMI Credentialing Guide for Practitioners, August 2026 (exam framework, 30 official sample questions, prerequisites and exam rules).
-- CMMI Appraisal Method (distinct organizational appraisal process).
+## Final readiness conclusion (important)
+**The platform is not yet sufficient as a sole, guaranteed study source for an official exam or company appraisal.** It offers comprehensive practice-area *overviews* and much stronger application exercises. However, the user's quick reference explicitly says it cannot replace the full licensed CMMI Model. The detailed normative wording, detailed examples and context-specific information for **all 276 individual practices** are missing. No responsible educational review can guarantee passing based only on simulated question scores. The official training and credential eligibility requirements still apply. The 2026 credentialing guide is the latest reference verified here; re-check 2027 policies.
 
-## Findings
+### Remaining prioritized improvements
+1. **P0 — Licensed model:** Acquire lawful access to CMMI v4.0 Model Viewer for the applicable view, then write original practice-level explanations with precise identifiers, citations and verified educational examples (without reproducing licensed text in violation of terms). Link each practice to evidence tasks.
+2. **P0 — Human subject-matter review:** Have a qualified CMMI instructor/Lead Appraiser validate scenarios, practice group descriptions, answer keys, and domain mapping. Current practice tests are **original**, not validated official exam items.
+3. **P1 — True MP4s:** Hyperframes compositions are generated, but an external CLI render and 80 locally sourced French/English audio tracks have **not** been produced or uploaded. Browser speech synthesis depends on voice availability and varies by OS/locale.
+4. **P1 — Human bilingual proofreading:** Native FR/EN authoring covers all 40 lessons and new media/evaluations; static UI localization checks pass on tested flows. A certified bilingual proofreader should review terminology and tone in all edge-case settings and dialogs.
+5. **P2 — Longitudinal learning validity:** Measure delayed recall after 7/30 days and require diversified case families before predicting a learner is ready.
 
-| Priority | Finding | Why it matters | Status in this release |
-|---|---|---|---|
-| Critical | PA reading modules repeated generalized explanations and did not fully enumerate normative practices | High risk of overestimating exam mastery | **Open**: unique scenarios and practical flows exist, but full-model coverage is not possible from the quick reference |
-| Critical | Entire trainer and questions were French | The intended exam language is English | **Improved**: 40 English learning modules, 206 English questions, UI toggle, 102-item vocabulary lab |
-| High | Mock exam capped at 40 questions with unrealistic time limit | Does not train four-hour pacing or weighted content areas | **Fixed**: 120/240 option and weighted domain selection |
-| High | Many answer options were obviously nonsensical; answer index was predictable | Leads to inflated scores | **Improved**: EN alternatives use plausible PA interventions and randomized correct-answer positions; further editorial item calibration needed |
-| High | Successful completion of one trivial activity marked a lesson as mastered | Overstates demonstrated understanding | **Open**: the last activity still gates validation, but should be followed by retrieval after 24h and multi-question mastery checks |
-| High | Practitioner 2026 exam framework was not a dedicated learning module | Exam conditions and high-weight sections overlooked | **Fixed**: F09 explains the current exam format, prerequisite, content weighting and restrictions |
-| Medium | UI uses a mixture of French and English after switching | Increases cognitive friction | **Partly improved**: navigation, learning flow and quiz UI translated; some ancillary labels remain French |
-| Medium | Evidence exercises are short and fictional rather than complete artifacts and interviews | Insufficient for real appraisal preparation | **Open**: needs multi-document cases, interview simulations and independent justification evaluation |
-| Medium | Mobile and desktop navigation should be validated after every change | Interaction bugs can block learning | **Smoke tested**: no JS exceptions in selected flows; broader regression testing needed |
-| Important | No systematic diagnostic using calibrated scoring and interval review | Learner cannot reliably identify readiness | **Open**: retrieval practice and dashboard exist; readiness still does not match official passing criteria |
+## Official reference links
+- CMMI Institute [Quick Reference Guide (Aug 2026)](https://cmmiinstitute.com/resource-files/public/cmmi-model-quick-reference-guide).
+- CMMI Institute [Credentialing Guide for Practitioners (Aug 2026)](https://cmmiinstitute.com/resource-files/public/cmmi-model-materials/cmmi-credentialing-guide-for-practitioners).
+- CMMI Institute [Model Viewer](https://www.cmmiinstitute.com/products/cmmi/cmmi-model-viewer).
+- HeyGen [Hyperframes source](https://github.com/heygen-com/hyperframes), Apache-2.0.
 
-## Accuracy boundaries
+**Legal boundaries:** no copyrighted official exam questions or non-public licensed model text has been copied into the app. Case documents, scripts and mastery tests are original fictional educational content.
 
-The published August 2026 Practitioner exam has 120 questions over 4 hours. Listed content weights are Core/Virtual 50%, Development 15%, Services 15%, Security/Safety 5%, Suppliers 5%, Data 5%, People 5%. The official guide contains 30 **sample** questions, not released past examination papers. The mandatory **Building Organizational Capability** course cannot be bypassed through this trainer. The current passing percentage is not published by CMMI Institute.
-
-## Next required improvements before calling this certification-ready
-
-1. Licensed model access and human-reviewed mappings to every applicable practice and group level (with links to the **user-owned** licensed material, not republishing it).
-2. Editor-reviewed question discrimination and a true five-option/three-option mix where appropriate, with realistic wrong answers, difficulty stratification, spaced retesting, distractor rationales and confidence ratings.
-3. Substantially deeper teaching and memory practice for category/CA/PA relationships, high-maturity quantitative concepts, organizational appraisal roles and process evidence scenarios.
-4. Simulated multi-document case packs: requirements, work products, logs, interviews, contradictory evidence and a reasoned appraisal finding exercise.
-5. Complete interface translation, keyboard accessibility pass, screen-reader quality and regression coverage for every learning route.
-6. Final verification against any policy or content-outline changes during 2027.
-
-**Conclusion:** a better independent bilingual foundation, **not** an official certification course and **not yet sufficient alone** to assure exam readiness or a recognized organizational maturity result.
+## 2026-10-14 additional audit and rendering correction
+- Licensing independently checked against ISACA's current [IP sharing policy](https://cmmiinstitute.com/getattachment/da36326f-d5ad-4478-ad59-74ae042c688e/CMMI-MDDAP-IP-Policy-Update-Use-Cases_Feb2025_PDF.pdf). The public summary's **276 count** cannot be represented as verified instructional coverage of 276 detailed normative practice statements. No unlicensed copies scraped from GitHub can be incorporated.
+- Official [Model Viewer](https://cmmiinstitute.com/products/cmmi/cmmi-model-viewer) costs US$150/year (as listed in October 2026) and includes full practice statements and supplemental information. A course review by an authorized expert remains needed.
+- Previous claim of 80 HyperFrames videos was too strong: the prior project included only compositions. The updated generator creates source scenes with local French/English audio WAV and timed subtitle VTT; the new GitHub Actions workflow renders and tests all 80 MP4 files remotely. Its successful completion must be verified before claiming publication.
+- The app continues to offer its browser-based narrator as a fallback, independent of the external MP4 assets.
