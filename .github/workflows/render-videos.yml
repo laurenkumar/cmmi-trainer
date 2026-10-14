@@ -1,4 +1,4 @@
-name: Render 80 bilingual HyperFrames lessons
+name: Cartesian — render 80 silent bilingual CMMI videos
 
 on:
   workflow_dispatch:
@@ -13,12 +13,12 @@ permissions:
   contents: write
 
 concurrency:
-  group: hyperframes-mp4-production
+  group: cmmi-cartesian-render
   cancel-in-progress: false
 
 jobs:
   render:
-    name: Render shard ${{ matrix.shard }}
+    name: Cartesian render ${{ matrix.shard }}/7
     runs-on: ubuntu-latest
     timeout-minutes: 120
     strategy:
@@ -30,14 +30,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install free local video, speech and rendering dependencies
+      - name: Install open-source HyperFrames and FFmpeg (no TTS)
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg espeak
+          sudo apt-get install -y ffmpeg
           npm install --global hyperframes
-      - name: Generate ten scene-timed HTML compositions and bilingual narrated WAV clips
-        run: python3 generate_hyperframes.py --shard '${{ matrix.shard }}' --with-audio
-      - name: Render MP4 using HyperFrames CLI
+      - name: Generate 10 Cartesian compositions and captions, NO audio
+        run: python3 generate_hyperframes.py --shard '${{ matrix.shard }}'
+      - name: Render actual silent MP4 with HyperFrames
         shell: bash
         run: |
           set -euo pipefail
@@ -46,55 +46,63 @@ jobs:
           test "${#compositions[@]}" -eq 10
           for file in "${compositions[@]}"; do
             stem="$(basename "$file" .html)"
-            echo "Rendering $stem via HyperFrames…"
-            hyperframes render --composition "$file" --fps 12 --quality draft --output "videos/$stem.mp4" </dev/null
+            echo "Rendering $stem in Cartesian, silent..."
+            hyperframes render --composition "$file" --fps 18 --quality looks --output "videos/$stem.mp4" </dev/null
             cp "video_compositions/$stem.vtt" "videos/$stem.vtt"
             test -s "videos/$stem.mp4"
-            ffprobe -v error -show_entries format=duration -of default=nw=1 "videos/$stem.mp4"
-            # The encoded MP4 must really have a locally synthesized audio track.
-            ffprobe -v error -select_streams a:0 -show_entries stream=index -of csv=p=0 "videos/$stem.mp4" | grep -q .
+            ffprobe -v error -select_streams v:0 -show_entries stream=index -of csv=p=0 "videos/$stem.mp4" | grep -q .
+            test -z "$(ffprobe -v error -select_streams a:0 -show_entries stream=index -of csv=p=0 "videos/$stem.mp4")"
           done
+          test "$(find videos -maxdepth 1 -name '*.mp4' | wc -l)" -eq 10
+          test "$(find videos -maxdepth 1 -name '*.vtt' | wc -l)" -eq 10
       - uses: actions/upload-artifact@v4
         with:
-          name: hyperframes-videos-${{ matrix.shard }}
+          name: cartesian-silent-${{ matrix.shard }}
           path: videos/
           if-no-files-found: error
           retention-days: 3
 
   publish:
-    name: Commit 80 videos and subtitles to main
+    name: Verify and commit 80 silent videos to main
     needs: render
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
+      - name: Install ffprobe
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
       - uses: actions/download-artifact@v4
         with:
-          pattern: hyperframes-videos-*
+          pattern: cartesian-silent-*
           path: videos/
           merge-multiple: true
-      - name: Validate all 80 videos and both voice tracks
+      - name: Verify all 80 playable MP4, all 80 VTT and absolutely no audio
+        shell: bash
         run: |
-          echo "MP4 count: $(find videos -maxdepth 1 -name '*.mp4' | wc -l)"
-          echo "VTT count: $(find videos -maxdepth 1 -name '*.vtt' | wc -l)"
+          set -euo pipefail
+          echo "Videos: $(find videos -maxdepth 1 -name '*.mp4' | wc -l)"
+          echo "Captions: $(find videos -maxdepth 1 -name '*.vtt' | wc -l)"
           test "$(find videos -maxdepth 1 -name '*.mp4' | wc -l)" -eq 80
           test "$(find videos -maxdepth 1 -name '*.vtt' | wc -l)" -eq 80
           for f in videos/*.mp4; do
             test -s "$f"
-            ffprobe -v error -select_streams a:0 -show_entries stream=index -of csv=p=0 "$f" | grep -q .
+            ffprobe -v error -select_streams v:0 -show_entries stream=index -of csv=p=0 "$f" | grep -q .
+            test -z "$(ffprobe -v error -select_streams a:0 -show_entries stream=index -of csv=p=0 "$f")"
           done
-      - name: Commit completed assets and trigger Vercel
+      - name: Publish to main (triggers Vercel)
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git pull --rebase origin main
           git add videos/*.mp4 videos/*.vtt
           if git diff --cached --quiet; then
-            echo 'All rendered assets already current'
+            echo 'Already published'
           else
-            git commit -m 'assets: 80 narrated bilingual lesson videos rendered by HyperFrames'
+            git commit -m 'assets: 80 silent Cartesian educational videos via HyperFrames'
             git push origin HEAD:main
           fi
