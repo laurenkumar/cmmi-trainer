@@ -15,6 +15,7 @@ The unpublished working tree contained restored public cards and original eviden
 - Replace 99 public-group recognition checks with scenario decisions. Preserve the six explicitly published PQA practice identifiers and separate them from public group summaries.
 - Keep A and B at 120 original questions per language, with separate case IDs and question stems. Several questions within a form intentionally share a dossier; the forms are not psychometrically validated. Quantitative questions cover increased, decreased and unchanged rates and distinguish counts, exposure and causation.
 - Preserve notes and history when assessment content changes; invalidate obsolete mastery. Reject malformed progress imports before changing saved state, and recheck assessment revision on import.
+- Replace the repeated aggregate-rate mastery item with 31 PA-specific transfer questions per language and 31 additional bilingual D05 case documents.
 - Add GitHub quality gates for content, reproducible build, media integrity and browser interactions.
 
 ## Public-source scope

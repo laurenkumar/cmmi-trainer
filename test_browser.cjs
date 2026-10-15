@@ -27,7 +27,7 @@ for(const mobile of (process.env.QA_SCREEN==='mobile'?[true]:process.env.QA_SCRE
    console.log('LESSON',mobile,lang,l.id);const id=l.domain?'PA-'+l.id:l.id;await nav('learn');await p.locator(`[data-lesson="${id}"]`).first().click();
    assert.equal(await p.locator('.publicPracticeCard').count(),l.publicPracticeLesson?6:l.publicGroupCourse?.entries.length||0);if(l.appliedLesson){assert.equal(await p.locator('.appliedLesson').count(),1);assert((await p.locator('.appliedLesson').innerText()).includes(l.appliedLesson[lang].example));}
    await p.locator('[data-lesson-tab="1"]').first().click();await p.locator('[data-lesson-stage="3"]').click();assert(await p.locator('.diagramExplanation').innerText());
-   await p.locator('[data-lesson-tab="2"]').first().click();assert.equal(await p.locator('.caseFile').count(),4);
+   await p.locator('[data-lesson-tab="2"]').first().click();assert.equal(await p.locator('.caseFile').count(),l.caseLab[lang].artifacts.length);
    await p.locator('[data-lesson-tab="3"]').first().click();const good=(lang==='en'?l.en:l.deep).correct;await p.locator(`[data-lesson-choice="${(good+1)%4}"]`).click();assert.equal(await p.locator('.workshopFeedback.incorrect').count(),1);await p.locator(`[data-lesson-choice="${good}"]`).click();assert.equal(await p.locator('.workshopFeedback.correct').count(),1);
    await p.locator('[data-lesson-tab="4"]').first().click();const qs=l.masteryQuestions[lang];
    // An all-wrong attempt must fail and leave completion disabled.

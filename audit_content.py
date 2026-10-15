@@ -11,7 +11,7 @@ for a in allL:
  assert len(a['practiceWalkthrough']['fr'])==len(a['practiceWalkthrough']['en'])==4,a['id']
  for lang in ('fr','en'):
   assert len(a['videoScenes'][lang])==6,a['id']
-  assert len(a['caseLab'][lang]['artifacts'])==4 and len(a['caseLab'][lang]['interviews'])==2
+  assert len(a['caseLab'][lang]['artifacts'])==(5 if a in D['areas'] else 4) and len(a['caseLab'][lang]['interviews'])==2
   q=a['masteryQuestions'][lang];assert len(q)==5,a['id']
   assert len({x['q'] for x in q})==5
   for x in q:
@@ -26,6 +26,6 @@ for a in allL:
 for lang in ('fr','en'):
  q=[qq for a in allL for qq in a['masteryQuestions'][lang]]
  assert len(q)==200 and len({qq['q'] for qq in q})>=95
-print('PASS: 40 bilingual lessons, 102 PG summaries, 276 quick-guide practice counts, 80 videos, 320 fictional documents, 160 interviews, 400 mastery questions, 102 full French glossary definitions.')
+print('PASS: 40 bilingual lessons, 102 PG summaries, 276 quick-guide practice counts, 80 videos, 382 bilingual fictional documents, 160 interviews, 400 mastery questions, 102 full French glossary definitions.')
 print('Coverage warning: normative full CMMI model practices are NOT present; current license-backed model not supplied.')
 print('Vocab note: English pronunciation depends on installed browser TTS voices.')

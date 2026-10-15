@@ -10,6 +10,10 @@ assert sum(len(a.get('publicGroupCourse',{}).get('entries',[])) for a in D['area
 assert all(a['source'] and str(a['page']) in a['source'] for a in D['areas'])
 for a in D['areas']:
  assert a['page'] in range(6,32)
+ for lang in ('fr','en'):
+  assert 'D05' in a['caseLab'][lang]['artifacts'][-1]['body']
+  assert 'D05' in a['masteryQuestions'][lang][2]['q']
+  assert 'combined adverse-event rate' not in a['masteryQuestions'][lang][2]['q']
  for x in a.get('publicGroupCourse',{}).get('entries',[]):
   assert x['sourcePage']==a['page']
   for lang in ('fr','en'):
