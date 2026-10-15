@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:10.420
-Welcome to Product Integration. In this lesson, we explore this purpose: Assemble components into a functioning solution while managing interfaces.
+00:00:00.000 --> 00:00:07.000
+Product Integration — Concept
 
 2
-00:00:10.420 --> 00:00:21.030
-Consider this scenario. Two modules pass independent tests but fail when combined. First understand the problem before producing documentation.
+00:00:07.000 --> 00:00:14.000
+Product Integration — Workflow
 
 3
-00:00:21.030 --> 00:00:31.190
-Start with two steps: Map components and interfaces. Then Plan integration sequence. Each step should be explained and evidenced.
+00:00:14.000 --> 00:00:21.000
+Product Integration — Evidence
 
 4
-00:00:31.190 --> 00:00:40.000
-Continue with Integrate incrementally. Then Verify combined behavior. Verify the results against the intended outcome.
+00:00:21.000 --> 00:00:28.000
+Product Integration — Practice groups
 
 5
-00:00:40.000 --> 00:01:00.690
-Stronger evidence looks like this: Stronger: contemporaneous integration plan, interface specifications, build test results tied to real work. Weaker evidence would be: Weaker: postponing interface validation until release week; no trace of consistent use. Triangulate independent sources.
-
-6
-00:01:00.690 --> 00:01:14.940
-Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.
+00:00:28.000 --> 00:00:35.000
+Product Integration — Apply

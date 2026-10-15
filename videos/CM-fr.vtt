@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:09.920
-Bienvenue dans la leçon Gestion de configuration. Notre objectif est le suivant : Conserver l'intégrité des livrables, versions et modifications autorisées..
+00:00:00.000 --> 00:00:07.000
+Gestion de configuration — Notion
 
 2
-00:00:09.920 --> 00:00:18.520
-Prenons un exemple. Une version publiée contient une dépendance non approuvée. Il faut comprendre le problème avant de produire un document.
+00:00:07.000 --> 00:00:14.000
+Gestion de configuration — Processus
 
 3
-00:00:18.520 --> 00:00:28.280
-Commence par deux étapes : Identifier les éléments à maîtriser. Ensuite, Créer une baseline approuvée. Chaque étape doit pouvoir être expliquée et illustrée.
+00:00:14.000 --> 00:00:21.000
+Gestion de configuration — Preuves
 
 4
-00:00:28.280 --> 00:00:37.930
-Poursuis avec : Contrôler les demandes de modification. Puis Auditer la configuration livrée. Vérifie que les résultats correspondent à l’objectif.
+00:00:21.000 --> 00:00:28.000
+Gestion de configuration — Niveaux
 
 5
-00:00:37.930 --> 00:00:55.670
-Une bonne trace serait : La version de production peut être reconstruite depuis une baseline, des approbations et un audit de conformité. À l’inverse, un indice faible serait : Un dépôt Git sans politique de baseline, de changements ni vérifications ne suffit pas. Recherche plusieurs sources qui se confirment.
-
-6
-00:00:55.670 --> 00:01:07.790
-À toi de jouer. Lis les quatre documents et les deux entretiens, identifie les contradictions et réussis le test de maîtrise. Cette vidéo est une explication pédagogique, pas une exigence officielle.
+00:00:28.000 --> 00:00:35.000
+Gestion de configuration — Application

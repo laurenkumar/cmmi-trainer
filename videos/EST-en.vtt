@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:09.400
-Welcome to Estimating. In this lesson, we explore this purpose: Produce defensible size, effort, duration and cost estimates.
+00:00:00.000 --> 00:00:07.000
+Estimating — Concept
 
 2
-00:00:09.400 --> 00:00:19.260
-Consider this scenario. A delivery date is promised without estimating the work. First understand the problem before producing documentation.
+00:00:07.000 --> 00:00:14.000
+Estimating — Workflow
 
 3
-00:00:19.260 --> 00:00:28.890
-Start with two steps: Bound the scope and units. Then Estimate size and effort. Each step should be explained and evidenced.
+00:00:14.000 --> 00:00:21.000
+Estimating — Evidence
 
 4
-00:00:28.890 --> 00:00:38.900
-Continue with Document assumptions and uncertainty. Then Compare estimates with outcomes. Verify the results against the intended outcome.
+00:00:21.000 --> 00:00:28.000
+Estimating — Practice groups
 
 5
-00:00:38.900 --> 00:00:58.340
-Stronger evidence looks like this: Stronger: contemporaneous estimate rationale, scope breakdown, actuals comparison tied to real work. Weaker evidence would be: Weaker: treating a requested deadline as an estimate; no trace of consistent use. Triangulate independent sources.
-
-6
-00:00:58.340 --> 00:01:12.590
-Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.
+00:00:28.000 --> 00:00:35.000
+Estimating — Apply

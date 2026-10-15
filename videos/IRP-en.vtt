@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:10.440
-Welcome to Incident Resolution and Prevention. In this lesson, we explore this purpose: Restore service and prevent recurring operational incidents.
+00:00:00.000 --> 00:00:07.000
+Incident Resolution and Prevention — Concept
 
 2
-00:00:10.440 --> 00:00:20.270
-Consider this scenario. The same production incident reappears each Friday. First understand the problem before producing documentation.
+00:00:07.000 --> 00:00:14.000
+Incident Resolution and Prevention — Workflow
 
 3
-00:00:20.270 --> 00:00:30.370
-Start with two steps: Log and prioritize incidents. Then Restore service within agreed needs. Each step should be explained and evidenced.
+00:00:14.000 --> 00:00:21.000
+Incident Resolution and Prevention — Evidence
 
 4
-00:00:30.370 --> 00:00:39.880
-Continue with Analyze patterns and causes. Then Verify prevention effectiveness. Verify the results against the intended outcome.
+00:00:21.000 --> 00:00:28.000
+Incident Resolution and Prevention — Practice groups
 
 5
-00:00:39.880 --> 00:01:00.340
-Stronger evidence looks like this: Stronger: contemporaneous incident log, service recovery record, repeat-incident trend tied to real work. Weaker evidence would be: Weaker: closing tickets without addressing systemic recurrence; no trace of consistent use. Triangulate independent sources.
-
-6
-00:01:00.340 --> 00:01:14.590
-Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.
+00:00:28.000 --> 00:00:35.000
+Incident Resolution and Prevention — Apply

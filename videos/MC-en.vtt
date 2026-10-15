@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:10.820
-Welcome to Monitor and Control. In this lesson, we explore this purpose: Compare actual results against a plan and act on significant deviations.
+00:00:00.000 --> 00:00:07.000
+Monitor and Control — Concept
 
 2
-00:00:10.820 --> 00:00:20.460
-Consider this scenario. A project slips three weeks with no escalation. First understand the problem before producing documentation.
+00:00:07.000 --> 00:00:14.000
+Monitor and Control — Workflow
 
 3
-00:00:20.460 --> 00:00:30.990
-Start with two steps: Define control points and tolerances. Then Observe actual performance. Each step should be explained and evidenced.
+00:00:14.000 --> 00:00:21.000
+Monitor and Control — Evidence
 
 4
-00:00:30.990 --> 00:00:40.820
-Continue with Investigate significant variance. Then Adjust actions and reforecast. Verify the results against the intended outcome.
+00:00:21.000 --> 00:00:28.000
+Monitor and Control — Practice groups
 
 5
-00:00:40.820 --> 00:01:00.410
-Stronger evidence looks like this: Stronger: contemporaneous variance reports, milestones, issue escalations tied to real work. Weaker evidence would be: Weaker: collecting status without responding to variance; no trace of consistent use. Triangulate independent sources.
-
-6
-00:01:00.410 --> 00:01:14.660
-Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.
+00:00:28.000 --> 00:00:35.000
+Monitor and Control — Apply

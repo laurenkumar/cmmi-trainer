@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:09.890
-Welcome to Process Asset Development. In this lesson, we explore this purpose: Create and maintain reusable organizational process assets.
+00:00:00.000 --> 00:00:07.000
+Process Asset Development — Concept
 
 2
-00:00:09.890 --> 00:00:20.060
-Consider this scenario. Four teams independently build their own review templates. First understand the problem before producing documentation.
+00:00:07.000 --> 00:00:14.000
+Process Asset Development — Workflow
 
 3
-00:00:20.060 --> 00:00:30.800
-Start with two steps: Discover reusable process needs. Then Develop common guidance and templates. Each step should be explained and evidenced.
+00:00:14.000 --> 00:00:21.000
+Process Asset Development — Evidence
 
 4
-00:00:30.800 --> 00:00:40.610
-Continue with Publish and control assets. Then Collect feedback and maintain assets. Verify the results against the intended outcome.
+00:00:21.000 --> 00:00:28.000
+Process Asset Development — Practice groups
 
 5
-00:00:40.610 --> 00:01:00.440
-Stronger evidence looks like this: Stronger: contemporaneous process library, template history, tailoring guidance tied to real work. Weaker evidence would be: Weaker: inventing every process from scratch for each project; no trace of consistent use. Triangulate independent sources.
-
-6
-00:01:00.440 --> 00:01:14.690
-Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.
+00:00:28.000 --> 00:00:35.000
+Process Asset Development — Apply

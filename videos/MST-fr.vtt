@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:10.410
-Bienvenue dans la leçon Menaces et vulnérabilités de sécurité. Notre objectif est le suivant : Identifier, hiérarchiser et traiter les menaces et faiblesses de sécurité..
+00:00:00.000 --> 00:00:07.000
+Menaces et vulnérabilités de sécurité — Notion
 
 2
-00:00:10.410 --> 00:00:19.220
-Prenons un exemple. Un correctif critique est repoussé sans évaluation du risque. Il faut comprendre le problème avant de produire un document.
+00:00:07.000 --> 00:00:14.000
+Menaces et vulnérabilités de sécurité — Processus
 
 3
-00:00:19.220 --> 00:00:29.360
-Commence par deux étapes : Inventorier menaces et vulnérabilités. Ensuite, Évaluer et prioriser les risques. Chaque étape doit pouvoir être expliquée et illustrée.
+00:00:14.000 --> 00:00:21.000
+Menaces et vulnérabilités de sécurité — Preuves
 
 4
-00:00:29.360 --> 00:00:38.490
-Poursuis avec : Traiter et surveiller les failles. Puis Vérifier les mesures de réduction. Vérifie que les résultats correspondent à l’objectif.
+00:00:21.000 --> 00:00:28.000
+Menaces et vulnérabilités de sécurité — Niveaux
 
 5
-00:00:38.490 --> 00:00:53.880
-Une bonne trace serait : Les vulnérabilités sont classées, assignées, traitées et vérifiées après remédiation. À l’inverse, un indice faible serait : Un registre de CVE non traité n’améliore pas la situation. Recherche plusieurs sources qui se confirment.
-
-6
-00:00:53.880 --> 00:01:06.000
-À toi de jouer. Lis les quatre documents et les deux entretiens, identifie les contradictions et réussis le test de maîtrise. Cette vidéo est une explication pédagogique, pas une exigence officielle.
+00:00:28.000 --> 00:00:35.000
+Menaces et vulnérabilités de sécurité — Application

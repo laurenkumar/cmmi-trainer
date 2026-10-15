@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:11.750
-Welcome to Managing Security Threats and Vulnerabilities. In this lesson, we explore this purpose: Find, prioritize and address threats and weaknesses according to risk.
+00:00:00.000 --> 00:00:07.000
+Managing Security Threats and Vulnerabilities — Concept
 
 2
-00:00:11.750 --> 00:00:21.790
-Consider this scenario. A critical patch is postponed without a risk assessment. First understand the problem before producing documentation.
+00:00:07.000 --> 00:00:14.000
+Managing Security Threats and Vulnerabilities — Workflow
 
 3
-00:00:21.790 --> 00:00:32.660
-Start with two steps: Identify exposures and threat sources. Then Rank risk using defined factors. Each step should be explained and evidenced.
+00:00:14.000 --> 00:00:21.000
+Managing Security Threats and Vulnerabilities — Evidence
 
 4
-00:00:32.660 --> 00:00:42.470
-Continue with Mitigate or formally accept risks. Then Reassess exposure and closure. Verify the results against the intended outcome.
+00:00:21.000 --> 00:00:28.000
+Managing Security Threats and Vulnerabilities — Practice groups
 
 5
-00:00:42.470 --> 00:01:02.190
-Stronger evidence looks like this: Stronger: contemporaneous threat register, risk prioritization, remediation report tied to real work. Weaker evidence would be: Weaker: assigning the same urgency to every vulnerability; no trace of consistent use. Triangulate independent sources.
-
-6
-00:01:02.190 --> 00:01:16.440
-Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.
+00:00:28.000 --> 00:00:35.000
+Managing Security Threats and Vulnerabilities — Apply

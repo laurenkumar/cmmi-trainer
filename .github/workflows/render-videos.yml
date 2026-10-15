@@ -8,6 +8,8 @@ on:
       - data.json
       - generate_hyperframes.py
       - .github/workflows/render-videos.yml
+      - publish_videos.py
+      - validate_release.py
 
 permissions:
   contents: write
@@ -34,7 +36,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y ffmpeg
-          npm install --global hyperframes
+          npm install --global hyperframes@0.8.161
       - name: Generate 10 Cartesian compositions and captions, NO audio
         run: python3 generate_hyperframes.py --shard '${{ matrix.shard }}'
       - name: Render actual silent MP4 with HyperFrames
@@ -71,9 +73,14 @@ jobs:
 
   publish:
     name: Verify and commit 80 silent videos to main
+    concurrency:
+      group: cmmi-main-publication
+      cancel-in-progress: false
     needs: render
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    env:
+      RENDER_SHA: ${{ github.sha }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -86,8 +93,11 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           pattern: cartesian-silent-*
-          path: videos/
+          path: rendered/
           merge-multiple: true
+      - name: Update branch before installing new assets
+        run: |
+          python3 publish_videos.py rendered --source-commit "$RENDER_SHA"
       - name: Verify all 80 playable MP4, all 80 VTT and absolutely no audio
         shell: bash
         run: |
@@ -105,12 +115,16 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git fetch origin main
-          git reset --hard origin/main
-          git add -f videos/*.mp4 videos/*.vtt
+          python3 validate_release.py --write-manifest
+          python3 build.py
+          git add -f videos/*.mp4 videos/*.vtt videos/manifest.json data.json index.html
           if git diff --cached --quiet; then
             echo 'Already published'
           else
             git commit -m 'assets: 80 silent Cartesian educational videos via HyperFrames'
             git push origin HEAD:main
           fi
+          python3 validate_release.py --git-ref HEAD
+          git fetch origin main
+          python3 validate_release.py --git-ref origin/main
+          echo "Published and verified $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"

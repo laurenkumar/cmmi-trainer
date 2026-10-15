@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:10.250
-Bienvenue dans la leçon Analyse causale et résolution. Notre objectif est le suivant : Comprendre pourquoi un résultat survient, agir sur ses causes puis mesurer l'effet..
+00:00:00.000 --> 00:00:07.000
+Analyse causale et résolution — Notion
 
 2
-00:00:10.250 --> 00:00:18.820
-Prenons un exemple. Trois incidents similaires reviennent après chaque livraison. Il faut comprendre le problème avant de produire un document.
+00:00:07.000 --> 00:00:14.000
+Analyse causale et résolution — Processus
 
 3
-00:00:18.820 --> 00:00:28.740
-Commence par deux étapes : Sélectionner le problème récurrent. Ensuite, Chercher les causes corroborées. Chaque étape doit pouvoir être expliquée et illustrée.
+00:00:14.000 --> 00:00:21.000
+Analyse causale et résolution — Preuves
 
 4
-00:00:28.740 --> 00:00:37.910
-Poursuis avec : Tester et documenter les actions. Puis Mesurer la baisse de récurrence. Vérifie que les résultats correspondent à l’objectif.
+00:00:21.000 --> 00:00:28.000
+Analyse causale et résolution — Niveaux
 
 5
-00:00:37.910 --> 00:00:54.440
-Une bonne trace serait : Une analyse relie trois incidents à la même erreur de contrôle, puis la fréquence baisse après modification du pipeline. À l’inverse, un indice faible serait : Une liste de bugs corrigés n’identifie pas de cause commune. Recherche plusieurs sources qui se confirment.
-
-6
-00:00:54.440 --> 00:01:06.560
-À toi de jouer. Lis les quatre documents et les deux entretiens, identifie les contradictions et réussis le test de maîtrise. Cette vidéo est une explication pédagogique, pas une exigence officielle.
+00:00:28.000 --> 00:00:35.000
+Analyse causale et résolution — Application

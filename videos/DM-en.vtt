@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:10.330
-Welcome to Data Management. In this lesson, we explore this purpose: Define consistent ownership, organization and controls for business data.
+00:00:00.000 --> 00:00:07.000
+Data Management — Concept
 
 2
-00:00:10.330 --> 00:00:20.140
-Consider this scenario. Two departments define the same metric differently. First understand the problem before producing documentation.
+00:00:07.000 --> 00:00:14.000
+Data Management — Workflow
 
 3
-00:00:20.140 --> 00:00:30.750
-Start with two steps: Identify data needs and owners. Then Define architecture and metadata. Each step should be explained and evidenced.
+00:00:14.000 --> 00:00:21.000
+Data Management — Evidence
 
 4
-00:00:30.750 --> 00:00:40.620
-Continue with Control data lifecycle activities. Then Review governance and usage. Verify the results against the intended outcome.
+00:00:21.000 --> 00:00:28.000
+Data Management — Practice groups
 
 5
-00:00:40.620 --> 00:01:00.580
-Stronger evidence looks like this: Stronger: contemporaneous data catalog, ownership matrix, retention rules tied to real work. Weaker evidence would be: Weaker: keeping data without owners, metadata or governance; no trace of consistent use. Triangulate independent sources.
-
-6
-00:01:00.580 --> 00:01:14.830
-Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.
+00:00:28.000 --> 00:00:35.000
+Data Management — Apply

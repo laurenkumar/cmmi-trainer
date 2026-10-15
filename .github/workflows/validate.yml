@@ -1,0 +1,36 @@
+name: Validate Academy release
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  content-media-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - run: npm ci --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - run: python3 audit_release.py
+      - run: python3 validate_release.py --git-ref HEAD
+      - name: Build is reproducible from committed editable sources
+        run: |
+          python3 build.py
+          git diff --exit-code -- index.html
+      - run: npm test
+        env:
+          QA_OUTPUT: browser-results.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: academy-validation
+          path: browser-results.json

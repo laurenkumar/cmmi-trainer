@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:10.940
-Welcome to Causal Analysis and Resolution. In this lesson, we explore this purpose: Identify why selected results occur and prevent unwanted recurrence.
+00:00:00.000 --> 00:00:07.000
+Causal Analysis and Resolution — Concept
 
 2
-00:00:10.940 --> 00:00:20.590
-Consider this scenario. Recurring defects keep returning after releases. First understand the problem before producing documentation.
+00:00:07.000 --> 00:00:14.000
+Causal Analysis and Resolution — Workflow
 
 3
-00:00:20.590 --> 00:00:30.960
-Start with two steps: Select a recurring outcome. Then Gather facts and validate root causes. Each step should be explained and evidenced.
+00:00:14.000 --> 00:00:21.000
+Causal Analysis and Resolution — Evidence
 
 4
-00:00:30.960 --> 00:00:41.310
-Continue with Implement a measurable preventive action. Then Review recurrence trends and effectiveness. Verify the results against the intended outcome.
+00:00:21.000 --> 00:00:28.000
+Causal Analysis and Resolution — Practice groups
 
 5
-00:00:41.310 --> 00:01:02.040
-Stronger evidence looks like this: Stronger: contemporaneous cause analysis records, action log, trend chart tied to real work. Weaker evidence would be: Weaker: treating symptoms instead of finding verified underlying causes; no trace of consistent use. Triangulate independent sources.
-
-6
-00:01:02.040 --> 00:01:16.290
-Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.
+00:00:28.000 --> 00:00:35.000
+Causal Analysis and Resolution — Apply

@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:09.260
-Bienvenue dans la leçon Qualité des données. Notre objectif est le suivant : Contrôler la fiabilité, la précision et l'aptitude des données à leur usage..
+00:00:00.000 --> 00:00:07.000
+Qualité des données — Notion
 
 2
-00:00:09.260 --> 00:00:17.850
-Prenons un exemple. Un tableau de bord inclut des doublons et des valeurs obsolètes. Il faut comprendre le problème avant de produire un document.
+00:00:07.000 --> 00:00:14.000
+Qualité des données — Processus
 
 3
-00:00:17.850 --> 00:00:27.360
-Commence par deux étapes : Définir les critères de qualité. Ensuite, Mesurer erreurs et doublons. Chaque étape doit pouvoir être expliquée et illustrée.
+00:00:14.000 --> 00:00:21.000
+Qualité des données — Preuves
 
 4
-00:00:27.360 --> 00:00:36.470
-Poursuis avec : Nettoyer et traiter les causes. Puis Contrôler l’évolution de la qualité. Vérifie que les résultats correspondent à l’objectif.
+00:00:21.000 --> 00:00:28.000
+Qualité des données — Niveaux
 
 5
-00:00:36.470 --> 00:00:51.760
-Une bonne trace serait : Les doublons sont mesurés chaque semaine, nettoyés et les règles sont ajustées après analyse. À l’inverse, un indice faible serait : La correction ponctuelle d’un fichier ne maintient pas la qualité. Recherche plusieurs sources qui se confirment.
-
-6
-00:00:51.760 --> 00:01:03.880
-À toi de jouer. Lis les quatre documents et les deux entretiens, identifie les contradictions et réussis le test de maîtrise. Cette vidéo est une explication pédagogique, pas une exigence officielle.
+00:00:28.000 --> 00:00:35.000
+Qualité des données — Application

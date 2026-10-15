@@ -1,0 +1,7 @@
+{
+  "name":"cmmi-academy-validation",
+  "private":true,
+  "version":"8.0.0",
+  "scripts":{"test":"node test_browser.cjs","build":"python3 build.py","check":"python3 audit_release.py"},
+  "devDependencies":{"playwright":"1.62.1"}
+}

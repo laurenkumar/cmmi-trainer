@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:10.420
-Welcome to Configuration Management. In this lesson, we explore this purpose: Maintain the integrity and traceability of controlled work products.
+00:00:00.000 --> 00:00:07.000
+Configuration Management — Concept
 
 2
-00:00:10.420 --> 00:00:19.960
-Consider this scenario. An unapproved library version reaches production. First understand the problem before producing documentation.
+00:00:07.000 --> 00:00:14.000
+Configuration Management — Workflow
 
 3
-00:00:19.960 --> 00:00:30.400
-Start with two steps: Identify controlled items and owners. Then Establish reviewed baselines. Each step should be explained and evidenced.
+00:00:14.000 --> 00:00:21.000
+Configuration Management — Evidence
 
 4
-00:00:30.400 --> 00:00:40.370
-Continue with Authorize and trace change requests. Then Audit delivered configurations. Verify the results against the intended outcome.
+00:00:21.000 --> 00:00:28.000
+Configuration Management — Practice groups
 
 5
-00:00:40.370 --> 00:01:01.780
-Stronger evidence looks like this: Stronger: contemporaneous baseline register, approved change records, configuration audit tied to real work. Weaker evidence would be: Weaker: assuming a Git repository alone guarantees configuration integrity; no trace of consistent use. Triangulate independent sources.
-
-6
-00:01:01.780 --> 00:01:16.030
-Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.
+00:00:28.000 --> 00:00:35.000
+Configuration Management — Apply

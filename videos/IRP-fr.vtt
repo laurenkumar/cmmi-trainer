@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:10.120
-Bienvenue dans la leçon Résolution et prévention des incidents. Notre objectif est le suivant : Restaurer les services après incident et éviter les interruptions récurrentes..
+00:00:00.000 --> 00:00:07.000
+Résolution et prévention des incidents — Notion
 
 2
-00:00:10.120 --> 00:00:18.470
-Prenons un exemple. La même panne de service réapparaît chaque vendredi. Il faut comprendre le problème avant de produire un document.
+00:00:07.000 --> 00:00:14.000
+Résolution et prévention des incidents — Processus
 
 3
-00:00:18.470 --> 00:00:28.990
-Commence par deux étapes : Enregistrer et classifier l’incident. Ensuite, Restaurer le service selon sa priorité. Chaque étape doit pouvoir être expliquée et illustrée.
+00:00:14.000 --> 00:00:21.000
+Résolution et prévention des incidents — Preuves
 
 4
-00:00:28.990 --> 00:00:38.400
-Poursuis avec : Identifier les tendances récurrentes. Puis Prévenir et vérifier les récidives. Vérifie que les résultats correspondent à l’objectif.
+00:00:21.000 --> 00:00:28.000
+Résolution et prévention des incidents — Niveaux
 
 5
-00:00:38.400 --> 00:00:52.010
-Une bonne trace serait : Le service est restauré puis les récurrences sont suivies et prévenues. À l’inverse, un indice faible serait : Fermer les tickets rapidement masque une panne répétitive. Recherche plusieurs sources qui se confirment.
-
-6
-00:00:52.010 --> 00:01:04.130
-À toi de jouer. Lis les quatre documents et les deux entretiens, identifie les contradictions et réussis le test de maîtrise. Cette vidéo est une explication pédagogique, pas une exigence officielle.
+00:00:28.000 --> 00:00:35.000
+Résolution et prévention des incidents — Application

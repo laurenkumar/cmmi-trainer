@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:08.490
-Bienvenue dans la leçon Solution technique. Notre objectif est le suivant : Concevoir et réaliser une solution répondant aux exigences..
+00:00:00.000 --> 00:00:07.000
+Solution technique — Notion
 
 2
-00:00:08.490 --> 00:00:17.630
-Prenons un exemple. Une solution performante ne répond pas aux exigences de maintenance. Il faut comprendre le problème avant de produire un document.
+00:00:07.000 --> 00:00:14.000
+Solution technique — Processus
 
 3
-00:00:17.630 --> 00:00:27.660
-Commence par deux étapes : Explorer les choix de solution. Ensuite, Concevoir composants et interfaces. Chaque étape doit pouvoir être expliquée et illustrée.
+00:00:14.000 --> 00:00:21.000
+Solution technique — Preuves
 
 4
-00:00:27.660 --> 00:00:37.130
-Poursuis avec : Produire selon les exigences. Puis Examiner qualité technique et impacts. Vérifie que les résultats correspondent à l’objectif.
+00:00:21.000 --> 00:00:28.000
+Solution technique — Niveaux
 
 5
-00:00:37.130 --> 00:00:51.720
-Une bonne trace serait : Les options techniques sont confrontées aux exigences et les décisions sont documentées. À l’inverse, un indice faible serait : Une technologie est choisie avant de comprendre le besoin. Recherche plusieurs sources qui se confirment.
-
-6
-00:00:51.720 --> 00:01:03.840
-À toi de jouer. Lis les quatre documents et les deux entretiens, identifie les contradictions et réussis le test de maîtrise. Cette vidéo est une explication pédagogique, pas une exigence officielle.
+00:00:28.000 --> 00:00:35.000
+Solution technique — Application

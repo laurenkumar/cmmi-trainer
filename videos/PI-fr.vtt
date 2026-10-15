@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:09.050
-Bienvenue dans la leçon Intégration du produit. Notre objectif est le suivant : Assembler des composants cohérents pour livrer une solution opérationnelle..
+00:00:00.000 --> 00:00:07.000
+Intégration du produit — Notion
 
 2
-00:00:09.050 --> 00:00:17.940
-Prenons un exemple. Deux modules fonctionnent séparément mais échouent lorsqu'on les assemble. Il faut comprendre le problème avant de produire un document.
+00:00:07.000 --> 00:00:14.000
+Intégration du produit — Processus
 
 3
-00:00:17.940 --> 00:00:28.310
-Commence par deux étapes : Définir la stratégie d’intégration. Ensuite, Préparer les interfaces et composants. Chaque étape doit pouvoir être expliquée et illustrée.
+00:00:14.000 --> 00:00:21.000
+Intégration du produit — Preuves
 
 4
-00:00:28.310 --> 00:00:37.900
-Poursuis avec : Assembler et tester les ensembles. Puis Livrer avec des critères d’acceptation. Vérifie que les résultats correspondent à l’objectif.
+00:00:21.000 --> 00:00:28.000
+Intégration du produit — Niveaux
 
 5
-00:00:37.900 --> 00:00:53.050
-Une bonne trace serait : L’intégration suit des règles d’interface, des essais progressifs et une validation du livrable. À l’inverse, un indice faible serait : Les composants passent leurs tests isolés mais échouent ensemble. Recherche plusieurs sources qui se confirment.
-
-6
-00:00:53.050 --> 00:01:05.170
-À toi de jouer. Lis les quatre documents et les deux entretiens, identifie les contradictions et réussis le test de maîtrise. Cette vidéo est une explication pédagogique, pas une exigence officielle.
+00:00:28.000 --> 00:00:35.000
+Intégration du produit — Application

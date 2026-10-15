@@ -1,27 +1,13 @@
-# 80 CMMI lessons — actual HyperFrames MP4 and offline speech
+# Videos: silent bilingual HyperFrames capsules
 
-The app contains 40 lessons × 2 languages. Each has a six-scene interactive HTML explainer, and will display a native MP4 with accessible subtitles **only when successfully rendered and published**.
+40 lessons × French/English = 80 silent, 35-second MP4 capsules with five caption cues each. These are revision summaries; the detailed teaching lives in the lessons and case files.
 
-## Video rendering
+## Render and publish
 
-- `generate_hyperframes.py` generates 80 HyperFrames compositions from the teaching content. It uses the framework's timed `.clip` / `data-no-timeline` contract, not an invented JS timeline.
-- `python3 generate_hyperframes.py --with-audio` generates 480 WAV narration segments with **eSpeak**, entirely locally and free of charge, plus bilingual `.vtt` captions. French and English are synthesized natively, not translated by the TTS engine.
-- Real MP4 files are rendered using the official [HyperFrames CLI](https://github.com/heygen-com/hyperframes) via `hyperframes render` and checked with `ffprobe` to ensure an audio stream is present.
-- `.github/workflows/render-videos.yml` splits generation into eight parallel jobs, verifies all 80 rendered MP4/VTT pairs, then commits `videos/` on main. Vercel's existing GitHub integration should deploy the new assets.
+The render workflow uses eight shards and HyperFrames 0.8.161. Each shard uploads ten MP4 and ten VTT files. The publish job downloads to `rendered/`, fast-forwards `main` while the assets are still separate, rejects source drift and partial batches, then installs and validates the new files. It never resets tracked assets after downloading.
 
-## Workflow status
+`validate_release.py --write-manifest` fully decodes media and records hashes. `--git-ref HEAD` verifies committed bytes; `--base-url https://cmmi-trainer.vercel.app` compares all 160 public media resources with those hashes. `videos/manifest.json` records source run and commit. The player uses hashes in asset URLs.
 
-The source compositions alone **are not MP4 files**. Run the GitHub Actions workflow `Render 80 bilingual HyperFrames lessons`, or let its trigger run when the generator or lesson data is updated. Do **not** claim videos are available until the workflow succeeds and `videos/*.mp4` exist on GitHub and Vercel.
+The recovery workflow accepts only a successful render run from this repository. Recovery refuses lessons changed since that render; run a fresh render in that case.
 
-Local rendering requires Node.js 22, official `hyperframes` npm CLI, Chrome/Chromium, FFmpeg and eSpeak. The current ChatGPT container cannot download the npm package due to unavailable DNS; the CI workflow installs it on GitHub-hosted runners. A rendered track is free software-generated speech; quality is intentionally basic compared to paid neural voices.
-
-To reproduce one file:
-
-```bash
-python3 generate_hyperframes.py --with-audio
-npm install -g hyperframes
-hyperframes render --composition video_compositions/CAR-en.html --fps 12 --quality draft --output videos/CAR-en.mp4
-ffprobe -v error -show_entries format=duration videos/CAR-en.mp4
-```
-
-No copyrighted full normative CMMI model content is packaged. Narration follows original educational scenarios and public summaries.
+A green run or a commit alone is insufficient: inspect publication, deployment, public hashes, range serving and browser playback.

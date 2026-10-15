@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:10.040
-Welcome to Data Quality. In this lesson, we explore this purpose: Make data sufficiently accurate, complete and fit for its intended use.
+00:00:00.000 --> 00:00:07.000
+Data Quality — Concept
 
 2
-00:00:10.040 --> 00:00:20.770
-Consider this scenario. A KPI dashboard includes duplicates and obsolete records. First understand the problem before producing documentation.
+00:00:07.000 --> 00:00:14.000
+Data Quality — Workflow
 
 3
-00:00:20.770 --> 00:00:30.650
-Start with two steps: Define quality requirements. Then Assess data against criteria. Each step should be explained and evidenced.
+00:00:14.000 --> 00:00:21.000
+Data Quality — Evidence
 
 4
-00:00:30.650 --> 00:00:40.920
-Continue with Resolve duplicates and defects. Then Monitor quality and refine controls. Verify the results against the intended outcome.
+00:00:21.000 --> 00:00:28.000
+Data Quality — Practice groups
 
 5
-00:00:40.920 --> 00:01:00.380
-Stronger evidence looks like this: Stronger: contemporaneous quality rules, validation reports, cleansing log tied to real work. Weaker evidence would be: Weaker: measuring volume rather than suitability of data; no trace of consistent use. Triangulate independent sources.
-
-6
-00:01:00.380 --> 00:01:14.630
-Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.
+00:00:28.000 --> 00:00:35.000
+Data Quality — Apply

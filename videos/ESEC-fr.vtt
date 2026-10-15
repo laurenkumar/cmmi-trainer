@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:09.660
-Bienvenue dans la leçon Mise en œuvre de la sécurité. Notre objectif est le suivant : Définir et déployer une approche cohérente de sécurité de l'organisation..
+00:00:00.000 --> 00:00:07.000
+Mise en œuvre de la sécurité — Notion
 
 2
-00:00:09.660 --> 00:00:18.780
-Prenons un exemple. Chaque projet applique ses propres règles d'accès sans coordination. Il faut comprendre le problème avant de produire un document.
+00:00:07.000 --> 00:00:14.000
+Mise en œuvre de la sécurité — Processus
 
 3
-00:00:18.780 --> 00:00:29.330
-Commence par deux étapes : Identifier les besoins de sécurité. Ensuite, Définir les contrôles et responsabilités. Chaque étape doit pouvoir être expliquée et illustrée.
+00:00:14.000 --> 00:00:21.000
+Mise en œuvre de la sécurité — Preuves
 
 4
-00:00:29.330 --> 00:00:38.440
-Poursuis avec : Déployer l’approche dans les équipes. Puis Revoir les écarts et corriger. Vérifie que les résultats correspondent à l’objectif.
+00:00:21.000 --> 00:00:28.000
+Mise en œuvre de la sécurité — Niveaux
 
 5
-00:00:38.440 --> 00:00:54.330
-Une bonne trace serait : Une stratégie commune de protection est déployée puis évaluée sur plusieurs projets. À l’inverse, un indice faible serait : Chaque équipe achète un outil de sécurité sans objectif ou revue partagés. Recherche plusieurs sources qui se confirment.
-
-6
-00:00:54.330 --> 00:01:06.450
-À toi de jouer. Lis les quatre documents et les deux entretiens, identifie les contradictions et réussis le test de maîtrise. Cette vidéo est une explication pédagogique, pas une exigence officielle.
+00:00:28.000 --> 00:00:35.000
+Mise en œuvre de la sécurité — Application

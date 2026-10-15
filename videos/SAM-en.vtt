@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:10.340
-Welcome to Supplier Agreement Management. In this lesson, we explore this purpose: Select, contract with and actively manage external suppliers.
+00:00:00.000 --> 00:00:07.000
+Supplier Agreement Management — Concept
 
 2
-00:00:10.340 --> 00:00:21.620
-Consider this scenario. A subcontractor repeatedly supplies components outside specification. First understand the problem before producing documentation.
+00:00:07.000 --> 00:00:14.000
+Supplier Agreement Management — Workflow
 
 3
-00:00:21.620 --> 00:00:31.570
-Start with two steps: Define supplier requirements. Then Assess and select candidates. Each step should be explained and evidenced.
+00:00:14.000 --> 00:00:21.000
+Supplier Agreement Management — Evidence
 
 4
-00:00:31.570 --> 00:00:41.390
-Continue with Agree responsibilities and acceptance. Then Monitor supplier obligations. Verify the results against the intended outcome.
+00:00:21.000 --> 00:00:28.000
+Supplier Agreement Management — Practice groups
 
 5
-00:00:41.390 --> 00:01:02.120
-Stronger evidence looks like this: Stronger: contemporaneous selection scores, signed agreements, supplier performance reviews tied to real work. Weaker evidence would be: Weaker: assuming a signed contract guarantees supplier performance; no trace of consistent use. Triangulate independent sources.
-
-6
-00:01:02.120 --> 00:01:16.370
-Now your turn. Review four documents and two interviews, identify inconsistencies and complete the mastery challenge. This video is an independent teaching explanation, not official CMMI model wording.
+00:00:28.000 --> 00:00:35.000
+Supplier Agreement Management — Apply

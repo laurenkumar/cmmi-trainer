@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:10.000
-Bienvenue dans la leçon Vérification et validation. Notre objectif est le suivant : Établir que le livrable respecte ses exigences et répond au besoin d'usage..
+00:00:00.000 --> 00:00:07.000
+Vérification et validation — Notion
 
 2
-00:00:10.000 --> 00:00:19.450
-Prenons un exemple. Le logiciel passe tous les tests unitaires mais ne couvre pas le parcours client. Il faut comprendre le problème avant de produire un document.
+00:00:07.000 --> 00:00:14.000
+Vérification et validation — Processus
 
 3
-00:00:19.450 --> 00:00:30.120
-Commence par deux étapes : Définir critères de vérification. Ensuite, Vérifier la conformité de la solution. Chaque étape doit pouvoir être expliquée et illustrée.
+00:00:14.000 --> 00:00:21.000
+Vérification et validation — Preuves
 
 4
-00:00:30.120 --> 00:00:39.650
-Poursuis avec : Valider en contexte réel d’utilisation. Puis Tracer défauts et décisions. Vérifie que les résultats correspondent à l’objectif.
+00:00:21.000 --> 00:00:28.000
+Vérification et validation — Niveaux
 
 5
-00:00:39.650 --> 00:00:55.050
-Une bonne trace serait : La solution satisfait ses spécifications et fonctionne dans un usage représentatif. À l’inverse, un indice faible serait : Des tests techniques verts masquent un parcours utilisateur impossible. Recherche plusieurs sources qui se confirment.
-
-6
-00:00:55.050 --> 00:01:07.170
-À toi de jouer. Lis les quatre documents et les deux entretiens, identifie les contradictions et réussis le test de maîtrise. Cette vidéo est une explication pédagogique, pas une exigence officielle.
+00:00:28.000 --> 00:00:35.000
+Vérification et validation — Application

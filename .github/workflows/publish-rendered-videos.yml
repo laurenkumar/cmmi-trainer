@@ -1,53 +1,58 @@
-name: Publish completed HyperFrames video artifacts
-
+name: Recover verified Cartesian video artifacts
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - .github/workflows/publish-rendered-videos.yml
-
+    inputs:
+      run_id:
+        description: Successful Cartesian render run in this repository
+        required: true
+        type: string
 permissions:
   contents: write
   actions: read
-
+concurrency:
+  group: cmmi-main-publication
+  cancel-in-progress: false
 jobs:
-  publish:
+  recover:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
-      - name: Install ffprobe
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Verify recovery source
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ inputs.run_id }}
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg
-      - name: Download all successfully rendered files from verified generation
-        uses: actions/download-artifact@v4
+          [[ "$RUN_ID" =~ ^[0-9]+$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" > /tmp/render-run.json
+          python3 - <<'PY' >> "$GITHUB_ENV"
+          import json
+          r=json.load(open("/tmp/render-run.json"))
+          assert r["conclusion"]=="success" and r["path"]==".github/workflows/render-videos.yml"
+          print("RENDER_SHA="+r["head_sha"])
+          PY
+      - uses: actions/download-artifact@v4
         with:
-          run-id: 38604221230
+          run-id: ${{ inputs.run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          pattern: hyperframes-videos-*
-          path: videos/
+          pattern: cartesian-silent-*
+          path: rendered/
           merge-multiple: true
-      - name: Validate 80 MP4 + 80 VTT with audio
+      - name: Install and verify recovered assets
         run: |
-          set -euo pipefail
-          test "$(find videos -maxdepth 1 -name '*.mp4' | wc -l)" -eq 80
-          test "$(find videos -maxdepth 1 -name '*.vtt' | wc -l)" -eq 80
-          for f in videos/*.mp4; do
-            test -s "$f"
-            ffprobe -v error -select_streams a:0 -show_entries stream=index -of csv=p=0 "$f" | grep -q .
-          done
-      - name: Push validated videos to main
+          python3 publish_videos.py rendered --source-commit "$RENDER_SHA"
+          python3 validate_release.py --write-manifest --render-run "${{ inputs.run_id }}"
+          python3 build.py
+      - name: Publish verified bytes
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git pull --rebase origin main
-          git add videos/*.mp4 videos/*.vtt
+          git add -f videos data.json index.html
           if ! git diff --cached --quiet; then
-            git commit -m 'assets: publish all 80 narrated CMMI HyperFrames lessons'
+            git commit -m 'assets: recover validated silent Cartesian video artifacts'
             git push origin HEAD:main
           fi
+          python3 validate_release.py --git-ref HEAD

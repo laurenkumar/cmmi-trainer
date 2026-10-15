@@ -1,25 +1,21 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:13.610
-Bienvenue dans la leçon Architecture : catégories, CA et PA. Notre objectif est le suivant : Le modèle regroupe des pratiques dans des Practice Areas (PA), elles-mêmes organisées en Capability Areas (CA) et catégories..
+00:00:00.000 --> 00:00:07.000
+Architecture : catégories, CA et PA — Notion
 
 2
-00:00:13.610 --> 00:00:22.220
-Prenons un exemple. Pourquoi ne suffit-il pas de « cocher » 31 PA ?. Il faut comprendre le problème avant de produire un document.
+00:00:07.000 --> 00:00:14.000
+Architecture : catégories, CA et PA — Processus
 
 3
-00:00:22.220 --> 00:00:35.170
-Commence par deux étapes : Grand regroupement : faire, gérer, permettre ou améliorer. Ensuite, Capacité organisationnelle ciblée par plusieurs PA. Chaque étape doit pouvoir être expliquée et illustrée.
+00:00:14.000 --> 00:00:21.000
+Architecture : catégories, CA et PA — Preuves
 
 4
-00:00:35.170 --> 00:00:49.060
-Poursuis avec : Ensemble cohérent de pratiques : exemple CM, PLAN ou PQA. Puis Activités attendues et groupes de niveau dans le modèle intégral. Vérifie que les résultats correspondent à l’objectif.
+00:00:21.000 --> 00:00:28.000
+Architecture : catégories, CA et PA — Niveaux
 
 5
-00:00:49.060 --> 00:00:59.430
-Une bonne trace serait : Des traces datées et recoupées. À l’inverse, un indice faible serait : Un récit non vérifié. Recherche plusieurs sources qui se confirment.
-
-6
-00:00:59.430 --> 00:01:11.550
-À toi de jouer. Lis les quatre documents et les deux entretiens, identifie les contradictions et réussis le test de maîtrise. Cette vidéo est une explication pédagogique, pas une exigence officielle.
+00:00:28.000 --> 00:00:35.000
+Architecture : catégories, CA et PA — Application
