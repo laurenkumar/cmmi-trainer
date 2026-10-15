@@ -2,6 +2,7 @@ name: Validate Academy release
 on:
   push:
     branches: [main]
+    paths-ignore: ['**/*.md']
   pull_request:
 permissions:
   contents: read
@@ -20,6 +21,7 @@ jobs:
       - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - run: npm ci --ignore-scripts
       - run: npx playwright install --with-deps chromium
+      - run: node --check app.js
       - run: python3 audit_release.py
       - run: python3 validate_release.py --git-ref HEAD
       - name: Build is reproducible from committed editable sources
