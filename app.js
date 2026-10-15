@@ -67,7 +67,7 @@ function videoWidget(l){
  const scenes=l.videoScenes?.[S.settings.lang];if(!scenes?.length)return '';
  const v=scenes[videoIndex]||scenes[0],idx=videoIndex;
  const sceneMarks=scenes.map((x,i)=>`<button type="button" class="hfMark ${i===idx?'on':''}" data-video-scene="${i}" aria-label="${esc(E('Séquence','Scene'))} ${i+1}" aria-pressed="${i===idx}"><span></span></button>`).join('');
- const asset=encodeURIComponent(l.id)+'-'+S.settings.lang;
+ const asset=encodeURIComponent(l.id.replace(/^PA-/,''))+'-'+S.settings.lang;
  const encodedVideo=`videos/${asset}.mp4`,encodedCaptions=`videos/${asset}.vtt`;
  const renderedPlayer=`<div class="hfRendered" id="rendered-${asset}"><div class="hfRenderedTitle">${E('Film animé MP4 · sous-titres FR/EN','Animated MP4 · FR/EN captions')}</div><video class="hfMp4" controls playsinline preload="metadata" onerror="this.closest('.hfRendered').classList.add('videoError')" aria-label="${esc(E('Cours vidéo enregistré','Recorded video lesson'))}"><source src="${encodedVideo}" type="video/mp4"><track kind="subtitles" src="${encodedCaptions}" srclang="${S.settings.lang}" label="${S.settings.lang.toUpperCase()}" default></video><p class="muted small">${E('Lecture interactive et narration vocale du navigateur disponibles juste en dessous.','Interactive playback and optional browser speech are available below.')}</p></div>`;
  return `<section class="hfUnit" aria-label="${E('Vidéo explicative de la leçon','Lesson explainer video')}">${renderedPlayer}
@@ -339,6 +339,7 @@ function dl(filename,content,type='application/json'){let blob=new Blob([content
 function prevNextQuiz(){if(!session||session.done)return;const q=session.pool[session.idx];if(session.selection===null){toast('Choisis une réponse avant de continuer.');return}let answer=session.answers.find(x=>x.i===session.idx);if(!answer){session.answers.push({i:session.idx,choice:session.selection,correct:session.selection===q.answer});if(session.type!=='exam'){render();return}}if(session.idx===session.pool.length-1)finishSession();else{session.idx++;session.selection=null;render()}}
 function answerQuiz(choice){if(!session||session.done||session.answers.some(x=>x.i===session.idx))return;session.selection=choice;if(session.type!=='exam'){session.answers.push({i:session.idx,choice,correct:choice===session.pool[session.idx].answer})}render()}
 let tmr=setInterval(()=>{if(route!=='quiz'||!session||session.done||session.type!=='exam')return;let left=Math.max(0,Math.ceil((session.deadline-Date.now())/1000));let tm=$('#timer');if(tm)tm.textContent=`${Math.floor(left/60)}:${String(left%60).padStart(2,'0')}`;if(left===0)finishSession()},1000);
+document.addEventListener('input',e=>{if(e.target.id==='videosearch'){query=e.target.value;const cards=document.querySelectorAll('[data-video-course]');let count=0;cards.forEach(card=>{const visible=(card.textContent+' '+card.dataset.videoCourse).toLowerCase().includes(query.toLowerCase());card.hidden=!visible;if(visible)count++});return}});
 document.addEventListener('click',e=>{
  const lang=e.target.closest('[data-lang]');if(lang){cancelVideo();videoIndex=0;S.settings.lang=lang.dataset.lang;save();session=null;render();return}
  const vc=e.target.closest('[data-video-course]');if(vc){videoCourseId=vc.dataset.videoCourse;render();window.scrollTo({top:180,behavior:'smooth'});return}
@@ -355,7 +356,6 @@ document.addEventListener('click',e=>{
  const gc=e.target.closest('[data-term]');if(gc){glossaryShow[gc.dataset.term]=!glossaryShow[gc.dataset.term];render();return}
  const r=e.target.closest('[data-route]');if(r){e.preventDefault();routeTo(r.dataset.route);return}
  const l=e.target.closest('[data-lesson]');if(l){e.preventDefault();videoCourseId=l.dataset.lesson;cancelVideo();videoIndex=0;masterDraft={};masterFeedback=false;selectedLesson=l.dataset.lesson;lessonTab=0;lessonStage=0;route='learn';mobileMenu=false;scrollTo(0,0);render();return}
- const videoSearch=e.target.closest('#videosearch');if(videoSearch){query=videoSearch.value;render();return}
  const filter=e.target.closest('[data-filter]');if(filter){domain=filter.dataset.filter;render();return}
  const tt=e.target.closest('[data-train-type]');if(tt){training.type=tt.dataset.trainType;training.num=training.type==='exam'?120:20;render();return}
  const lt=e.target.closest('[data-lesson-tab]');if(lt){cancelVideo();lessonTab=Number(lt.dataset.lessonTab);if(selectedLesson){S.lessonVisited=S.lessonVisited||{};S.lessonVisited[selectedLesson]=[...new Set([...(S.lessonVisited[selectedLesson]||[0]),lessonTab])];save()}render();window.scrollTo({top:200,behavior:'smooth'});return}
