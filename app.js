@@ -354,6 +354,7 @@ document.addEventListener('click',e=>{
  const gc=e.target.closest('[data-term]');if(gc){glossaryShow[gc.dataset.term]=!glossaryShow[gc.dataset.term];render();return}
  const r=e.target.closest('[data-route]');if(r){e.preventDefault();routeTo(r.dataset.route);return}
  const l=e.target.closest('[data-lesson]');if(l){e.preventDefault();videoCourseId=l.dataset.lesson;cancelVideo();videoIndex=0;masterDraft={};masterFeedback=false;selectedLesson=l.dataset.lesson;lessonTab=0;lessonStage=0;route='learn';mobileMenu=false;scrollTo(0,0);render();return}
+ const videoSearch=e.target.closest('#videosearch');if(videoSearch){query=videoSearch.value;render();return}
  const filter=e.target.closest('[data-filter]');if(filter){domain=filter.dataset.filter;render();return}
  const tt=e.target.closest('[data-train-type]');if(tt){training.type=tt.dataset.trainType;training.num=training.type==='exam'?120:20;render();return}
  const lt=e.target.closest('[data-lesson-tab]');if(lt){cancelVideo();lessonTab=Number(lt.dataset.lessonTab);if(selectedLesson){S.lessonVisited=S.lessonVisited||{};S.lessonVisited[selectedLesson]=[...new Set([...(S.lessonVisited[selectedLesson]||[0]),lessonTab])];save()}render();window.scrollTo({top:200,behavior:'smooth'});return}
