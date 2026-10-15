@@ -10,6 +10,10 @@ jobs:
   content-media-browser:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        screen: [desktop, mobile]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -31,8 +35,9 @@ jobs:
       - run: npm test
         env:
           QA_OUTPUT: browser-results.json
+          QA_SCREEN: ${{ matrix.screen }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: academy-validation
+          name: academy-validation-${{ matrix.screen }}
           path: browser-results.json
