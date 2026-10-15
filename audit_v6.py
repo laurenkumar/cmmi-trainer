@@ -34,4 +34,11 @@ for lang in ('fr','en'):
  assert not (set(stems)&practice)
  assert all(q['id'].startswith('MOCK-') for q in all_exams)
  print(f'{lang}: 2 x 120 held-out mock questions, no exact overlaps; domain quota OK')
+# Require reasoning-rich scenarios, not only syntactic uniqueness.
+for lang in ('fr','en'):
+ for form in ('A','B'):
+  questions=d['mockExamForms'][form][lang]
+  weak=[q['id'] for q in questions if len(q['q'].split())<15]
+  print(f'{lang}/{form}: {len(weak)} short stems (<15 words); editorial review needed')
+  assert len({q['id'] for q in questions})==120
 print('PASS: PQA 6 practices, 31 bilingual PG summaries, original A/B exam forms and disjoint training bank')
