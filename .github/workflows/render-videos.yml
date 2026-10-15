@@ -42,6 +42,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p videos
+          rm -f videos/*.mp4 videos/*.vtt
           mapfile -t compositions < <(find video_compositions -maxdepth 1 -name '*.html' -type f | sort)
           test "${#compositions[@]}" -eq 10
           for file in "${compositions[@]}"; do
