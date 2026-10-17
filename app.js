@@ -364,7 +364,17 @@ function localizeDOM(){
  const placeholders={'Rechercher un sujet ou code PA…':'Search by topic or PA code…','Rechercher une Practice Area…':'Search Practice Areas…'};
  document.querySelectorAll('input[placeholder]').forEach(el=>{if(placeholders[el.placeholder])el.placeholder=placeholders[el.placeholder]});
 }
-function render(){const opened=[...document.querySelectorAll('.publicPracticeCard details[open]')].map(el=>el.querySelector('.practiceCode')?.textContent);document.title=english()?'CMMI Academy 2027 — Learn · Practice · Assess':'CMMI Academy 2027 — Apprendre, pratiquer, évaluer';document.getElementById('root').innerHTML=`<div class="app">${sidebar()}<main class="main">${topbar()}<div class="content">${view()}<footer class="footer">© CMMI Academy · outil pédagogique indépendant · CMMI® est une marque du CMMI Institute · données conservées localement · révision : ${esc(D.contentRevision)} · <a href="/${S.settings.lang}/">${E("Cours et guides publics","Public lessons and guides")}</a> · <a href="/${S.settings.lang}/sources/">${E("Sources et méthode","Sources and method")}</a></footer></div></main></div>`;localizeDOM();document.documentElement.lang=S.settings.lang;document.querySelectorAll('.publicPracticeCard details').forEach(el=>{if(opened.includes(el.querySelector('.practiceCode')?.textContent))el.open=true});document.querySelectorAll('[data-lesson]').forEach(el=>{if(el.tagName==='DIV'){el.setAttribute('role','button');el.tabIndex=0}});document.querySelectorAll('video').forEach(v=>v.addEventListener('error',()=>{const hint=v.nextElementSibling;if(hint)hint.hidden=false}));}
+function syncPermalink(){
+ const url=new URL(location.href);
+ url.searchParams.set('lang',S.settings.lang);
+ for(const key of ['lesson','workshop','route'])url.searchParams.delete(key);
+ if(route==='learn'&&selectedLesson)url.searchParams.set('lesson',selectedLesson);
+ else if(route==='workshops'&&selectedWorkshop)url.searchParams.set('workshop',selectedWorkshop);
+ else if(nav.some(n=>n[0]===route)||route==='matrix')url.searchParams.set('route',route);
+ else if(route==='quiz')url.searchParams.set('route','train');
+ if(url.href!==location.href)try{history.replaceState(null,'',url.href)}catch{}
+}
+function render(){syncPermalink();const opened=[...document.querySelectorAll('.publicPracticeCard details[open]')].map(el=>el.querySelector('.practiceCode')?.textContent);document.title=english()?'CMMI Academy 2027 — Learn · Practice · Assess':'CMMI Academy 2027 — Apprendre, pratiquer, évaluer';document.getElementById('root').innerHTML=`<div class="app">${sidebar()}<main class="main">${topbar()}<div class="content">${view()}<footer class="footer">© CMMI Academy · outil pédagogique indépendant · CMMI® est une marque du CMMI Institute · données conservées localement · révision : ${esc(D.contentRevision)} · <a href="/${S.settings.lang}/">${E("Cours et guides publics","Public lessons and guides")}</a> · <a href="/${S.settings.lang}/sources/">${E("Sources et méthode","Sources and method")}</a></footer></div></main></div>`;localizeDOM();document.documentElement.lang=S.settings.lang;document.querySelectorAll('.publicPracticeCard details').forEach(el=>{if(opened.includes(el.querySelector('.practiceCode')?.textContent))el.open=true});document.querySelectorAll('[data-lesson]').forEach(el=>{if(el.tagName==='DIV'){el.setAttribute('role','button');el.tabIndex=0}});document.querySelectorAll('video').forEach(v=>v.addEventListener('error',()=>{const hint=v.nextElementSibling;if(hint)hint.hidden=false}));}
 function routeTo(next){selectedWorkshop=null;cancelVideo();videoIndex=0;route=next;selectedLesson=null;mobileMenu=false;query='';domain='Tous';scrollTo(0,0);render()}
 function dl(filename,content,type='application/json'){let blob=new Blob([content],{type}),url=URL.createObjectURL(blob);let a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2500)}
 function prevNextQuiz(){if(!session||session.done)return;const q=session.pool[session.idx];if(session.selection===null){toast('Choisis une réponse avant de continuer.');return}let answer=session.answers.find(x=>x.i===session.idx);if(!answer){session.answers.push({i:session.idx,choice:session.selection,correct:session.selection===q.answer});if(session.type!=='exam'){render();return}}if(session.idx===session.pool.length-1)finishSession();else{session.idx++;session.selection=null;render()}}
@@ -445,6 +455,6 @@ const entry=new URLSearchParams(location.search);
 if(['fr','en'].includes(entry.get('lang'))){S.settings.lang=entry.get('lang');save()}
 if(allLessons.some(l=>l.id===entry.get('lesson'))){selectedLesson=entry.get('lesson');route='learn'}
 if(D.workshops[entry.get('workshop')]){selectedWorkshop=entry.get('workshop');selectedLesson=null;route='workshops'}
-if(entry.get('route')==='train'){route='train';selectedLesson=null;selectedWorkshop=null}
+if([...nav.map(n=>n[0]),'matrix'].includes(entry.get('route'))){route=entry.get('route');selectedLesson=null;selectedWorkshop=null}
 render();
 })();

@@ -47,6 +47,9 @@ async function run(){
    }
    results.push({screen:mobile?'mobile390':'desktop1440',lang,workshops:31,wrongAttempts:31,correctAttempts:31,draftsReloaded:62});console.log('PASS',mobile,lang,'31 workshop flows');fs.writeFileSync(out,JSON.stringify({status:'running',results},null,2));
   }
+  // A language switch must update the permalink before reload, including drafts.
+  await p.locator('[data-lang="fr"]').click();await p.reload();assert.equal(await p.locator('html').getAttribute('lang'),'fr');
+  await p.locator('[data-lang="en"]').click();await p.reload();assert.equal(await p.locator('html').getAttribute('lang'),'en');
   const stored=await p.evaluate(()=>JSON.parse(localStorage.getItem('cmmi_academy_2027_v1')));assert.equal(Object.keys(stored.workshops).length,62);
   // Test export/import through the app, preserving narrative and per-language attempts.
   const nav=async route=>{if(mobile&&!await p.locator('.sidebar').evaluate(el=>el.classList.contains('open')))await p.locator('[data-action=menu]').click();await p.locator(`.sidebar [data-route="${route}"]`).click()};
