@@ -24,7 +24,7 @@ jobs:
           python-version: '3.12'
       - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - run: npm ci --ignore-scripts
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chrome
       - run: node --check app.js
       - run: python3 audit_release.py
       - run: python3 validate_release.py --git-ref HEAD
@@ -32,12 +32,21 @@ jobs:
         run: |
           python3 build.py
           git diff --exit-code -- index.html
+      - run: python3 test_public_site.py
       - run: npm test
         env:
           QA_OUTPUT: browser-results.json
           QA_SCREEN: ${{ matrix.screen }}
+          CHROMIUM_CHANNEL: chrome
+      - run: npm run test:workshops
+        env:
+          QA_OUTPUT: browser-results-workshops.json
+          QA_SCREEN: ${{ matrix.screen }}
+          CHROMIUM_CHANNEL: chrome
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: academy-validation-${{ matrix.screen }}
-          path: browser-results.json
+          path: |
+            browser-results.json
+            browser-results-workshops.json

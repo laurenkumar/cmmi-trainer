@@ -1,7 +1,15 @@
 {
-  "name":"cmmi-academy-validation",
-  "private":true,
-  "version":"8.0.0",
-  "scripts":{"test":"node test_browser.cjs","build":"python3 build.py","check":"python3 audit_release.py"},
-  "devDependencies":{"playwright":"1.62.1"}
+  "name": "cmmi-academy-validation",
+  "private": true,
+  "version": "10.0.0",
+  "scripts": {
+    "test": "node test_browser.cjs",
+    "build": "python3 build.py",
+    "check": "python3 audit_release.py",
+    "test:workshops": "node test_workshops.cjs",
+    "check:site": "python3 test_public_site.py"
+  },
+  "devDependencies": {
+    "playwright": "1.51.1"
+  }
 }
