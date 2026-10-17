@@ -66,6 +66,8 @@ listed={el.text.removeprefix(BASE) for el in ET.parse(ROOT/'sitemap.xml').findal
 assert listed==set(pages),(len(listed),len(pages))
 assert 'Allow: /' in (ROOT/'robots.txt').read_text()
 assert not any((ROOT/p).exists() for p in ['data.json','app.js','build.py','content','node_modules'])
+cfg=json.loads(Path('vercel.json').read_text())
+assert cfg.get('outputDirectory')=='dist' and cfg.get('buildCommand')=='python3 build.py','Deploy must build and serve the audited static output'
 D=json.loads(Path('data.json').read_text())
 for code,w in W.items():
  assert len(w['records'])==3 and len(w['rubric'])==4
